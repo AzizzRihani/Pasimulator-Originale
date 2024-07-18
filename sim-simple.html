@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	
+    <style>
+	
+
+
+.image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    margin:-60px 0 0 -60px;
+    -webkit-animation:spin 6s linear infinite;
+    -moz-animation:spin 6s linear infinite;
+    animation:spin 6s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+.floating-label-group1 {
+	position: relative;
+	margin-top: 35px;
+	margin-bottom: 25px;
+}
+
+	.floating-label1 {
+        font-family: 'Times New Roman', Times, serif;
+		font-size: 18px;
+		color: #cccccc;
+		position: absolute;
+		pointer-events: none;
+		top: 9px;
+		left: 12px;
+		transition: all 0.1s ease;
+	}
+    .floating-label1 {
+        font-family: 'Times New Roman', Times, serif;
+		font-size: 18px;
+		color: #cccccc;
+		position: absolute;
+		pointer-events: none;
+		top: 9px;
+		left: 12px;
+		transition: all 0.1s ease;
+	}
+    
+    .img-rectangular:hover img {
+  transform-origin: left top;
+  animation: a 2000ms ease-in-out forwards;
+}
+@keyframes a {
+  to {
+    transform: scale(1.15);
+  }
+}
+@keyframes b {
+  to {
+    transform: scale(1.05);     
+  }
+}
+.img-rectangular1:hover img {
+  transform-origin: left bottom;
+  animation: b 2000ms ease-in-out forwards;
+}
+
+	input:focus ~ .floating-label1,
+	input:not(:focus):valid ~ .floating-label1 {
+		top: -36px;
+        font-family: 'Times New Roman', Times, serif;
+		bottom: 0px;
+		left: 0px;
+		font-size: 20px;
+		opacity: 1;
+		color: #404040;
+	}
+    .floating-label-group {
+        font-family: 'Times New Roman', Times, serif;
+	position: relative;
+	margin-top: 15px;
+	margin-bottom: 25px;
+}
+
+	.floating-label {
+        font-family: 'Times New Roman', Times, serif;
+		font-size: 18px;
+		color: #cccccc;
+		position: absolute;
+		pointer-events: none;
+		top: 9px;
+		left: 12px;
+		transition: all 0.1s ease;
+	}
+    .floating-label {
+        font-family: 'Times New Roman', Times, serif;
+		font-size: 18px;
+		color: #cccccc;
+		position: absolute;
+		pointer-events: none;
+		top: 9px;
+		left: 12px;
+		transition: all 0.1s ease;
+	}
+    
+
+	input:focus ~ .floating-label,
+	input:not(:focus):valid ~ .floating-label {
+        font-family: 'Times New Roman', Times, serif;
+		top: -36px;
+		bottom: 0px;
+		left: 0px;
+		font-size: 20px;
+		opacity: 1;
+		color: #404040;
+	}
+    .label2{
+        font-family: 'Times New Roman', Times, serif;
+        top: -36px;
+		bottom: 0px;
+		left: 0px;
+		font-size: 18px;
+		opacity: 1;
+		color: #404040;
+
+    }
+    .label3{
+        font-family: 'Times New Roman', Times, serif;
+        top: -36px;
+		bottom: 0px;
+		left: 0px;
+		font-size: 14px;
+		opacity: 1;
+		color: #404040;
+
+    }
+label{
+    font-family: 'Times New Roman', Times, serif;
+		font-size: 14px;
+
+}
+
+button {
+    font-family: 'Times New Roman', Times, serif;
+
+}
+select{
+    
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+h5{
+    
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+th{
+    
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+td{
+    
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+li{
+    
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+h6{
+    
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+
+input{
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+        
+       /* input:invalid{
+    border: 2px solid rgb(173, 10, 10);
+}
+input:valid{
+    border: 2px solid green;
+}*/
+option {
+    font-family: 'Times New Roman', Times, serif;
+}
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 2px solid rgba(5, 0, 0, 0.3);
+ 
+}
+nav {
+    background: rgb(7,48,33);
+background: radial-gradient(circle, rgba(7,48,33,1) 0%, rgba(63,97,77,1) 0%, rgba(9,102,63,0.47692580450148814) 54%);}
+ 
+  </style>
+    <title>Simulateur PAVENIR</title>
+    <link rel="icon" href="src/title.png" sizes="32x32" type="image/png">
+</head>
+
+<body style="background-image: url('src/b.png');">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light btn-lg navbar fixed-top" style="border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;" >
+        <div class="row" style="display: flex;justify-content: space-between;width: 100%;">
+            <div class="col-3">
+                <img src="src/logoassbiat.png">
+            </div>
+            <div class="col-1">
+            </div>
+            <div class="col-1">
+                <div class="navbar-brand">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                <a1 class="nav-link" style="font-family: Arial, Helvetica, sans-serif;">
+                Agence: </a1>
+                        </li>
+                        </ul>
+                        </div>
+            </div>
+            <div class="col-3"> 
+                <a class="nav-link">
+                <select  style="font-family: Arial, Helvetica, sans-serif;width: 90%;"  id="agnc" list="catrev"  class="form-control form-control new2" placeholder="" required>
+                <option disabled selected hidden id="AGC" style="font-family: Arial, Helvetica, sans-serif;" ></option>
+                <option value="Nabeul" ref="1">Nabeul</option>
+                <option value="Hammamet" ref="1">Hammamet</option>
+                <option value="Bir M'Chergua" ref="2">Bir M'Chergua</option>
+                <option value="Grombalia" ref="3">Grombalia</option>
+                <option value="Menzel Bouzelfa" ref="4">Menzel Bouzelfa</option>
+                <option value="Korba" ref="5">Korba</option>
+                <option value="El Manar" ref="1">El Manar</option>
+                <option value="Bab Souika" ref="2">Bab Souika</option>
+                <option value="Utique" ref="3">Utique</option>
+                <option value="Hammam Sousse" ref="4">Hammam Sousse</option>
+                <option value="Kairouan" ref="5">Kairouan</option>
+                <option value="Oueslatia" ref="1">Oueslatia</option>
+                <option value="Teboulba" ref="2">Teboulba</option>
+                <option value="Jamel Abdennaceur" ref="3">Jamel Abdennaceur</option>
+                <option value="Sfax 5 Aout" ref="4">Sfax 5 Aout</option>
+                <option value="Les Berges du Lac" ref="5">Les Berges du Lac</option>
+                <option value="Sousse Khezama" ref="1">Sousse Khezama</option>
+                <option value="Avenue de Paris II" ref="2">Avenue de Paris II</option>
+                <option value="El Hafsia" ref="3">El Hafsia</option>
+                <option value="Cahrguia II" ref="4">Cahrguia II</option>
+                <option value="Sousse Bab Bhar" ref="5">Sousse Bab Bhar</option>
+                <option value="Mahdia" ref="1">Mahdia</option>
+                <option value="Sousse Nord" ref="2">Sousse Nord</option>
+                <option value="Monastir" ref="3">Monastir</option>
+                <option value="Ksar Helal" ref="3">Ksar Helal</option>
+                <option value="Kalaa Essquira" ref="4">Kalaa Essquira</option>
+                <option value="M'saken" ref="5">M'saken</option>
+                <option value="Ksibet Mediouni" ref="1">Ksibet Mediouni</option>
+                <option value="Sousse Corniche" ref="2">Sousse Corniche</option>
+                <option value="Sidi Bou Ali" ref="3">Sidi Bou Ali</option>
+                <option value="Tozeur" ref="4">Tozeur</option>
+                <option value="Sfax Centre" ref="5">Sfax Centre</option>
+                <option value="Sfax 2000" ref="1">Sfax 2000</option>
+                <option value="Djerba" ref="2">Djerba</option>
+                <option value="Sfax Thameur" ref="2">Sfax Thameur</option>
+                <option value="Sfax 18 Janvier 1952" ref="3">Sfax El Habib</option>
+                <option value="Sfax Hilal" ref="4">Sfax 18 Janvier 1952</option>
+                <option value="Bir Ali Ben Khelifa" ref="5">Bir Ali Ben Khelifa</option>
+                <option value="Sfax Foire" ref="1">Sfax Foire</option>
+                <option value="Sfax Harzallah" ref="2">Sfax Harzallah</option>
+                <option value="Gabes" ref="3">Gabes</option>
+                <option value="Sfax Marlburg" ref="4">Sfax Marlburg</option>
+                <option value="Sfax Hached" ref="5">Sfax Hached</option>
+                 <option value="Sfax Gremda" ref="4">Sfax Gremda</option>
+                <option value="Sfax Nord" ref="5">Sfax Nord</option>
+                <option value="Sfax Medina" ref="1">Sfax Medina I</option>
+                <option value="Mahres" ref="2">Mahres</option>
+                <option value="Sakiet Ezzit" ref="3">Sakiet Ezzit</option>
+                <option value="El Hencha" ref="4">El Hencha</option>
+                <option value="Bizerte" ref="5">Bizerte</option>
+                <option value="Megrine" ref="2">Megrine</option>
+                <option value="El Alia" ref="3">El Alia</option>
+                <option value="Béja" ref="4">Béja</option>
+                <option value="Mateur" ref="5">Mateur</option>
+                <option value="Galaxie" ref="1">Galaxie</option>
+                <option value="El Ouardia" ref="2">El Ouardia</option>
+                <option value="Rue De Syrie" ref="3">Rue De Syrie</option>
+                <option value="AV H.Bourguiba IV" ref="4">AV H.Bourguiba IV</option>
+                <option value="Avenue De France" ref="5">Avenue De France</option>
+                <option value="Comptoire Des Particuliers" ref="1">Comptoire Des Particuliers</option>
+                <option value="Avenue de Paris I" ref="2">Avenue de Paris I</option>
+                <option value="El Jazira I" ref="3">El Jazira I</option>
+                <option value="Charguia I" ref="4">Charguia I</option>
+                <option value="Lafayette PP" ref="3">Lafayette PP</option>
+                <option value="El Menzel I" ref="4">El Menzel I</option>
+                <option value="El Menzeh VI" ref="5">El Menzeh VI</option>
+                <option value="Avenue de Carthage" ref="1">Avenue de Carthage</option>
+                <option value="El Menzah VII" ref="1">El Menzah VII</option>
+                <option value="International" ref="1">International</option>
+                <option value="Mannouba" ref="2">Mannouba</option>
+                <option value="Ben Arous" ref="3">Ben Arous</option>
+                <option value="Hédi Chaker" ref="4">Hédi Chaker</option>
+                <option value="Le Kram" ref="5">Le Kram</option>
+                <option value="Ariana Forum" ref="1">Ariana Forum</option>
+                <option value="Le Bardo" ref="2">Le Bardo</option>
+                <option value="El Jazira II" ref="3">El Jazira II</option>
+                <option value="Tunis Medina" ref="4">Tunis Medina</option>
+                <option value="Jendouba" ref="5">Jendouba</option>
+                <option value="Ennasr" ref="3">Ennasr</option>
+                <option value="Campus" ref="3">Campus</option>
+                <option value="Hammamet Centre" ref="5">Hammamet Centre</option>
+                <option value="Hammamet M'rezga" ref="1">Hammamet M'rezga</option>
+                <option value="AGENCE DU PERSONNEL" ref="1">AGENCE DU PERSONNEL</option>
+                <option value="Sousse Médina" ref="2">Sousse Médina</option>
+                <option value="Jardins El Kantaoui" ref="3">Jardins El Kantaoui</option>
+                <option value="Mohamed V" ref="4">Mohamed V</option>
+                <option value="Manaret. Hammamet" ref="5">Manaret. Hammamet</option>
+                <option value="Ezzahrouni" ref="1">Ezzahrouni</option>
+                <option value="Hammam-lif" ref="2">Hammam-lif</option>
+                <option value="Carnoy" ref="3">Carnoy</option>
+                <option value="Ariana Ennour" ref="4">Ariana Ennour</option>
+                <option value="Lafayette PME" ref="5">Lafayette PME</option>
+                <option value="La Marsa" ref="3">La Marsa</option>
+                <option value="Sfax El Jadida" ref="4">Sfax El Jadida</option>
+                <option value="Ariana Nord" ref="1">Ariana Nord</option>
+                <option value="Marina Hammamet" ref="2">Marina Hammamet</option>
+                <option value="Mahdia II" ref="3">Mahdia II</option>
+                <option value="Sfax Sakiet Eddeyer" ref="4">Sfax Sakiet Eddeyer</option>
+                <option value="Sfax Zitouna" ref="5">Sfax Zitouna</option>
+                <option value="El Bouhaira" ref="1">El Bouhaira</option> 
+                <option value="JERBA Midoun" ref="4">JERBA Midoun</option>
+                <option value="Tunis City Géant" ref="3">Tunis City Géant</option>
+                <option value="Monastir II" ref="4">Monastir II</option>
+                <option value="Sousse Belahouane" ref="5">Sousse Belahouane</option>
+                <option value="Hédi Nouira Ennasr" ref="1">Hédi Nouira Ennasr</option>
+                <option value="Cite Des Sciences" ref="1">Cite Des Sciences</option>
+                <option value="Sousse Hached" ref="1">Sousse Hached</option>
+                <option value="SFAX ROUTE DE TUNIS" ref="2">SFAX ROUTE DE TUNIS</option>
+                <option value="JAMMEL" ref="3">JAMMEL</option>
+                <option value="ZARZIS" ref="4">ZARZIS</option>
+                <option value="MONTPLAISIR" ref="5">MONTPLAISIR</option>
+                <option value="SFAX TENIOUR" ref="1">SFAX TENIOUR</option>
+                <option value="ELFAHS" ref="2">ELFAHS</option>
+                <option value="Gremda Merkez Kamoun" ref="3">Gremda Merkez Kamoun</option>
+                <option value="M'Ghira" ref="4">M'Ghira</option>
+                <option value="Sahline" ref="5">Sahline</option>
+                <option value="Menzel Jemli" ref="3">Menzel Jemli</option>
+                <option value="Sahloul" ref="3">Sahloul</option>
+                <option value="Moknine" ref="5">Moknine</option>
+                <option value="Sidi Bou Said" ref="1">Sidi Bou Said</option>
+                <option value="Menzel Bourguiba" ref="1">Menzel Bourguiba</option>
+                <option value="Marsa II" ref="2">Marsa II</option>
+                <option value="Menzel Temime" ref="3">Menzel Temime</option>
+                <option value="Dar Chaabene" ref="4">Dar Chaabene</option>
+                <option value="Kelibia" ref="5">Kelibia</option>
+                <option value="Soukra" ref="1">Soukra</option>
+                <option value="Oued Ellil" ref="2">Oued Ellil</option>
+                <option value="Le Kef" ref="3">Le Kef</option>
+                <option value="Ezzahra" ref="4">Ezzahra</option>
+                <option value="Boumhel" ref="5">Boumhel</option>
+                <option value="Enfidha" ref="3">Enfidha</option>
+                <option value="Raoud El Ghazala" ref="4">Raoud El Ghazala</option>
+                <option value="Kasserine" ref="1">Kasserine</option>
+                <option value="El Mourouj 4" ref="2">El Mourouj 4</option>
+                <option value="Les Jardins Du Lac" ref="3">Les Jardins Du Lac</option>
+                <option value="El Menchia" ref="4">El Menchia</option>
+                <option value="El Menzah 9" ref="5">El Menzah 9</option>
+                <option value="Soliman" ref="1">Soliman</option>
+                <option value="Sidi Abdelhamid" ref="4">Sidi Abdelhamid</option>
+                <option value="Ain Zaghouan" ref="3">Ain Zaghouan</option>
+                <option value="Laouina" ref="4">Laouina</option>
+                <option value="Cite EL Khadra" ref="5">Cite EL Khadra</option>
+                <option value="Cite Ettadhamen" ref="1">Cite Ettadhamen</option>
+                <option value="Sfax Ettouta" ref="1">Sfax Ettouta</option>
+                <option value="Sliana" ref="1">Sliana</option>
+                <option value="Sidi Bouzid" ref="2">Sidi Bouzid</option>
+                <option value="Nabeul Oued Souhil" ref="3">Nabeul Oued Souhil</option>
+                <option value="Sidi Hassine" ref="4">Sidi Hassine</option>
+                <option value="Bab Bnet" ref="5">Bab Bnet</option>
+                <option value="Jardins Menzah 2" ref="1">Jardins Menzah 2</option>
+                <option value="Gafsa" ref="2">Gafsa</option>
+                <option value="Bizerte Corniche" ref="3">Bizerte Corniche</option>
+                <option value="Rades" ref="4">Rades</option>
+                <option value="Ibn Khaldoun" ref="5">Ibn Khaldoun</option>
+                <option value="Gabes 2" ref="3">Gabes 2</option>
+                <option value="Ksar Hellal" ref="3">Ksar Hellal</option>
+                <option value="Sousse Erriadh" ref="5">Sousse Erriadh</option>
+                <option value="Sayada" ref="1">Sayada</option>
+                <option value="Bousalem" ref="1">Bousalem</option>
+                <option value="Ouerdanine" ref="2">Ouerdanine</option>
+                <option value="Regueb" ref="3">Regueb</option>
+                <option value="Montfleury" ref="4">Montfleury</option>
+                <option value="Ras Jebel" ref="5">Ras Jebel</option>
+                <option value="Kalaa Kebira" ref="1">Kalaa Kebira</option>
+                <option value="Beni Khalled" ref="1">Beni Khalled</option>
+                <option value="Medenine" ref="1">Medenine</option>
+                <option value="Nouvelle Medina" ref="1">Nouvelle Medina</option>
+                <option value="RTE Mzl Chaker" ref="1">RTE Mzl Chaker</option>
+                <option value="Ksour Essaf" ref="1">Ksour Essaf</option>
+                <option value="Mornag" ref="1">Mornag</option>
+                <option value="Kebili" ref="1">Kebili</option>
+                <option value="Gammarth" ref="1">Gammarth</option>
+                <option value="Chebba" ref="1">Chebba</option>
+                <option value="RTE Lafrane" ref="1">RTE Lafrane</option>
+                <option value="Borj Louzir" ref="1">Borj Louzir</option>
+                <option value="Denden" ref="1">Denden</option>
+                <option value="El Jem" ref="1">El Jem</option>
+                <option value="Zagouan" ref="1">Zagouan</option>
+                <option value="Testour" ref="1">Testour</option>
+                <option value="Borj Cedria" ref="1">Borj Cedria</option>
+                <option value="Tebourba" ref="1">Tebourba</option>
+                <option value="Tejerouine" ref="1">Tejerouine</option>
+                <option value="La Goulette" ref="1">La Goulette</option>
+                <option value="Mjez El Bab" ref="1">Mjez El Bab</option>
+                <option value="Tataouine" ref="1">Tataouine</option>
+                <option value="Cite Ezzouhour" ref="1">Cite Ezzouhour</option>
+                <option value="Enfidha" ref="1">Enfidha</option>
+                <option value="Souassi" ref="1">Souassi</option>
+                <option value="Rte Saltnia" ref="1">Rte Saltnia</option>
+                <option value="Les Jardins de Carthage" ref="1">Les Jardins de Carthage</option>
+                <option value="Moncef Bey" ref="1">Moncef Bey</option>
+                <option value="Monastir 3" ref="1">Monastir 3</option>
+                <option value="Sahloul 2" ref="1">Sahloul 2</option>
+                <option value="Souk Lahad" ref="1">Souk Lahad</option>
+                <option value="Mornaguia" ref="1">Mornaguia</option>
+                <option value="Yasminet" ref="1">Yasminet</option>
+                <option value="Mhamdia" ref="1">Mhamdia</option>
+                <option value="Bardo 2" ref="1">Bardo 2</option>
+                <option value="Route DE Gammarth" ref="1">Route DE Gammarth</option>
+                <option value="Route Aeroport" ref="1">Route Aeroport</option>
+                <option value="Hotel Ibis" ref="1">Hotel Ibis</option>
+                <option value="Monastir Mall" ref="1">Monastir Mall</option>
+               
+
+                
+                
+                
+                
+            
+            </select></a></div>
+            
+            <div class="col-3">
+                <div class="navbar-brand">
+                    <ul class="navbar-nav">
+                        <li style="visibility: hidden;" class="nav-item "> <a class="nav-link" style="font-family: Arial, Helvetica, sans-serif;" >Simulation simple</a></li>
+                        <li class="nav-item "> <a class="nav-link" onclick="window.open('sim-inverse.html')" style="font-family: Arial, Helvetica, sans-serif;" >Simulation inverse</a></li>
+                        <span style="visibility: hidden;" class="navbar-toggler-icon"></span>
+                        <span style="visibility: hidden;" class="navbar-toggler-icon"></span>
+                        <span style="visibility: hidden;" class="navbar-toggler-icon"></span>
+                        
+                        <button type="button" class="btn btn-outline-secondary btn-block" id="par" style="font-family: Arial, Helvetica, sans-serif;width: 25%;" >Paramètres</button>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <br><br><br>
+
+    <div class="container" >
+        <br>
+        <div>
+            <h1 class="text-center" style="font-family: 'Times New Roman', Times, serif;color:rgb(63, 62, 62);">Simulation Projet Avenir</h1>
+            <br>
+            <div class="img-rectangular">
+            <br>
+           
+            <h3 style="font-family: 'Times New Roman', Times, serif;color: rgb(92, 92, 92);">Informations du client</h3>
+            <br>
+            <div class="row">
+                <div class="col-3"><div ><img  src="src/client3.jpg" style="border-radius: 50%;"></div></div>
+            
+                   
+
+               
+                   
+                 <div class="col-9"> 
+                     <div class="row">
+                <div class="col-6">
+                    <div class="floating-label-group1">
+                    <input type="text" id="Name" style="width: 100%;" class="form-control form-control-lg"  autocomplete="off"  required>
+                    <label class="floating-label">Nom et prénom</label>
+
+                </div>
+                </div>
+                <div class="col-6">
+                    
+                    <div class="floating-label-group1">
+                    <input type="text" id="inDate" style="width: 100%;" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" onmouseleave="" class="form-control form-control-lg"   autocomplete="off" required>
+                    <label class="floating-label">Date de naissance de l assuré (age inf 100)</label>
+                    <label id="alert5" class="text-center" style="font-family: 'Times New Roman', Times, serif;font-size: 18px;color: rgb(233, 15, 15);visibility: hidden;">Verifiez la date de naissance</label>
+               
+                </div>
+            </div> 
+            </div> 
+            </div>
+        </div>
+            
+        <br>
+        
+    </div>
+                    <hr/>
+                    <div class="img-rectangular">
+                    <br>
+
+           
+            <h3 style="font-family: 'Times New Roman', Times, serif;color: rgb(92, 92, 92);">Caractéristiques de la phase d'épargne</h3>
+            <br>
+         
+            <div class="row">
+                <div class="col-3">
+                    <br>
+                    <div ><img  src="src/projet.jpg" style="border-radius: 50%;"></div>
+                </div>
+                <div class="col-9">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="floating-label-group1">
+                            <input type="number" id="VersInit" style="width: 100%;" class="form-control form-control-lg new5" autocomplete="off"  required>
+                            <label class="floating-label1">Versement initial (TND)</label>
+                        </div>
+        
+                        </div>
+                        <div class="col-4">
+                            <div class="floating-label-group1">
+                            <input type="number" id="VersProg" style="width: 100%;" class="form-control form-control-lg new5" autocomplete="off" required>
+                            <label class="floating-label1" >Versement programmé (TND)</label>
+                        </div>
+                        </div>
+        
+                        <div class="col-4">
+                            <div class="floating-label-group1">
+
+                            <input type="text" id="inDateSous" style="width: 100%;" class="form-control form-control-lg"  onfocus="this.type='Date'" onblur="if(this.value==''){this.type='text'}" autocomplete="off" required>
+        <label class="floating-label1">Date de souscription</label>
+                           
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"> 
+                            
+                            <label class="label2" id="freqv" style="visibility: hidden;">Fréquence des versements</label>
+                            <select id="freqvers" list="catrev" style="width: 100%;" class="form-control form-control-lg new2" onfocus="(document.getElementById('freqv').style.visibility='visible')" onblur="if(this.value=='Fréquence de vers'){document.getElementById('freqv').style.visibility='hidden'}"   required>
+                               
+                                <option disabled selected hidden >Fréquence de vers</option>
+                                <option value="12" >Mensuelle</option>
+                                <option value="4" >Trimestrielle</option>
+                                <option value="2" >Semestrielle</option>
+                                <option value="1" >Annuelle</option>
+                                
+                               
+                                
+                                </select>
+                        </div>
+                        <div class="col-4">
+                            <div class="floating-label-group1">
+        
+                            <input type="number" id="durObj"  style="width: 100%;" class="form-control form-control-lg new dure" autocomplete="off" required>
+                            <label class="floating-label1">Durée du contrat (Année)</label>
+        
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label class="label2" id="101" style="visibility: hidden;">Échéance</label>
+        
+                            <select id="Ech1" style="visibility: hidden;" onfocus="(document.getElementById('101').style.visibility='visible')" onblur="if(this.value=='Échéance'){document.getElementById('101').style.visibility='hidden'}"  list="catrev" style="width: 100%;" class="form-control form-control-lg new2" placeholder="Échéance" required>
+                               
+                                <option disabled selected hidden >Échéance</option>
+                                <option value="1" >Date d'anniversaire</option>
+                                <option value="0" >Fin de la dernière année</option>
+                                
+                                
+                               
+                                
+                                </select>
+                        </div>
+                    </div>
+                </div>
+                
+               
+            </div>
+        
+            <br>
+        </div>
+            <hr/>
+            <div class="img-rectangular">
+            <br>
+            
+            <h3 style="font-family: 'Times New Roman', Times, serif;color: rgb(92, 92, 92);">Récupération de l'épargne constituée à l'échéance</h3>
+            <br>
+            <div class="row">
+                <div class="col-3"><div ><img src="src/rente.jpg" style="border-radius: 50%;"></div></div>
+                <div class="col-9">
+                    <br>
+                    <div class="row">
+                        <div class="col-4">
+                            <label class="label2" id="102" style="visibility: hidden;">Capital/Rente</label>
+        
+                            <select id="TypeRT" onfocus="(document.getElementById('102').style.visibility='visible')" onblur="if(this.value=='01'){document.getElementById('102').style.visibility='hidden'}" list="catrev" style="width: 100%;" class="form-control form-control-lg new2"  required>
+                                <option disabled selected hidden value="6">Capital/Rente</option>
+                                <option value="0">Capital à l'échéance</option>
+                                <option value="1" >Rente certaine</option>
+                                <option value="2" >Rente viagère sur une tête </option>
+                                <option value="3" >Rente viagère réversible</option>
+                                
+                                
+                                 </select>
+                           
+                            
+                        </div>
+                        
+                        <div class="col-4" style="display: none;" id="DureRente">
+                            <div class="floating-label-group1">
+        
+                            <input type="number" id="DurRtC" style="width: 100%;" class="form-control form-control-lg" autocomplete="off" required>
+                            <label class="floating-label1">Durée de rente (En Année)</label>
+        
+                            </div>
+                        </div>
+                        <div class="col-4" style="display: none;" id="PerRente">
+                            <label class="label2" id="103" style="visibility: hidden;">Périodicité Rente</label>
+        
+                            <select id="PerRt" onfocus="(document.getElementById('103').style.visibility='visible')" onblur="if(this.value=='Périodicité Rente'){document.getElementById('103').style.visibility='hidden'}" list="catrev" style="width: 100%;" class="form-control form-control-lg new2" placeholder="Frequence de versement" required>
+                                <option disabled selected hidden>Périodicité Rente</option>
+                                <option value="12" >Mensuelle</option>
+                                <option value="4" >Trimestrielle</option>
+                                <option value="2" >Semestrielle</option>
+                                <option value="1" >Annuelle</option>
+                                
+                                 </select>
+                        </div>
+                        <div class="col-4" style="display: none;" id="Naiss2T" > 
+                           
+                            <div class="floating-label-group1">
+
+                                <input placeholder = "2"  type="text" id="inDate2T" style="width: 100%;" class="form-control form-control-lg"  onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" autocomplete="off" required>
+            <label class="floating-label1">Date de naissance (2ème tête)</label>
+                               
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        
+    
+            <br>
+                <div class="row">
+                    <div class="col-3"></div>
+
+                <div style="display: none;"  id="a1" class="col-3">
+                    <div id="alert1" style="width: 110%;height: 86%;background-color:#DFFBDF;border-color: green;border-width:3px;" class="card card-success">
+                    <h6 class="text-center">Age de l'assuré: </h6>
+                    <h6 id="Age" class="text-center">
+                    </h6>
+                </div>
+                </div>
+                <div class="col-3" id="a2" style="display: none;">
+                    <div id="alert2" style="width: 110%;height: 86%;background-color:#DFFBDF;border-color: green;border-width:3px;" class="card card-success">
+                    <h6 class="text-center">Age à l'échéance de la phase d'épargne: </h6>
+                    <h6 id="AgeObj" class="text-center">
+
+                    </h6>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+
+            </div>
+                
+            </div>
+            <br>
+        </div>
+             <hr/>
+            <br>
+            <h2  style="font-family: 'Times New Roman', Times, serif;color:rgb(63, 62, 62);">Avantage fiscal lié au contrat Projet Avenir</h2>
+            <br>
+            <div class="img-rectangular">
+
+            <br>
+            <div class="row">
+                <div class="col-2"> <img src="src/fis.png" style="border-radius: 50%;"></div>
+                <div class="col-10">
+            <h4 style="font-family: 'Times New Roman', Times, serif;color: rgb(92, 92, 92);">Informations fiscales</h4>
+            <br>
+            <div class="row">
+                <div class="col-4">
+                    <label class="label2" id="104" style="visibility: hidden;font-family: 'Times New Roman', Times, serif;">Catégories des revenus</label>
+
+                    <select id="catrev1" onfocus="(document.getElementById('104').style.visibility='visible')" onblur="if(this.value=='Catégories des revenus'){document.getElementById('104').style.visibility='hidden'}" list="catrev" style="width: 100%;" class="form-control form-control-lg new2" placeholder="Categorie de revenu" required>
+                        
+                        <option disabled selected hidden style="color: #404040;" value="0">Catégories des revenus</option>
+
+                        <option value="1">Bénéfices des Professions non Commerciales - Régime réel</option>
+                        <option value="2">Bénéfices des Professions non Commerciales - Base forfaitaire</option>
+                        <option value="3">Salaires</option>
+                        <option value="4">Pensions et rentes viagères</option>
+                        </select>
+                    
+                </div>
+                <div class="col-4">
+                    <label id="REVNET" class="label2" style="visibility: hidden;" id="REVNET">  </label>
+                    <input id="inRevenu" type="number" style="width: 100%;" class="form-control form-control-lg new2" placeholder="Revenu imposable (TND)" required>
+                </div>
+                <div class="col-4">
+                    <label class="label2" id="105" style="visibility: hidden;" id="REVNET">Chef de famille</label>
+
+                    <select id="ChFam" onfocus="(document.getElementById('105').style.visibility='visible')" onblur="if(this.value=='Chef de famille'){document.getElementById('105').style.visibility='hidden'}"  style="width: 100%;" class="form-control form-control-lg new2" placeholder="" required>
+
+                        <option disabled selected hidden>Chef de famille</option>
+
+                        <option value="oui" selected>Chef de famille: Oui</option>
+                        <option value="non">Chef de famille: Non</option></select>
+                </div>
+                
+            </div>
+        </div>
+        
+        </div>
+            <br>
+        
+            <br>
+        </div>
+            <div class="img-rectangular">
+                <div class="row">
+                   
+                    <div class="col-2"> <br><img src="src/enfants.png" style="border-radius: 50%;"></div>
+                    <div class="col-10">
+            <br>
+            <h4 style="font-family: 'Times New Roman', Times, serif;color: rgb(92, 92, 92);">Enfants à charge</h4>
+            <br>
+           
+            <div class="row">
+                <div class="col-3">
+                    <label id="106" class="label2" style="visibility: hidden;font-family: 'Times New Roman', Times, serif;" id="REVNET">1er Enfant</label>
+
+                    <select id="Enf1" onfocus="(document.getElementById('106').style.visibility='visible')" onblur="if(this.value=='1er Enfant'){document.getElementById('106').style.visibility='hidden'}" list="catrev" style="width: 100%;" class="form-control form-control-lg new2" placeholder="1er Enfant" required>
+                        <option disabled selected hidden>1er Enfant</option>
+
+                        <option value="1" selected>Pas d'enfant</option>
+                         <option value="2">Enfant n’est plus à charge</option>
+                         <option value="3">Enfant à charge dont l’âge est ≤ 20 ans</option>
+                         <option value="4">Enfant dont l’âge est ≤ 25 ans poursuivant ses études supérieures sans bourse</option>
+                         <option value="5">Enfant infirme</option>
+                         </select>
+                    
+                </div>
+                <div class="col-3">
+                    <label  id="107" class="label2" style="visibility: hidden;font-family: 'Times New Roman', Times, serif;" >2ème Enfant</label>
+
+                    <select id="Enf2" onfocus="(document.getElementById('107').style.visibility='visible')" onblur="if(this.value=='2ème Enfant'){document.getElementById('107').style.visibility='hidden'}" list="catrev" style="width: 100%;" class="form-control form-control-lg new2" placeholder="2eme Enfant" required>
+                        <option disabled selected hidden>2ème Enfant</option>
+
+                        <option value="1" selected>Pas d'enfant</option>
+                         <option value="2">Enfant n’est plus à charge</option>
+                         <option value="3">Enfant à charge dont l’âge est ≤ 20 ans</option>
+                         <option value="4">Enfant dont l’âge est ≤ 25 ans poursuivant ses études supérieures sans bourse</option>
+                         <option value="5">Enfant infirme</option>
+                         </select>
+                </div>
+                <div class="col-3">
+                    <label id="108" class="label2" style="visibility: hidden;font-family: 'Times New Roman', Times, serif;" id="REVNET">3ème Enfant</label>
+
+                    <select id="Enf3" onfocus="(document.getElementById('108').style.visibility='visible')" onblur="if(this.value=='3ème Enfant'){document.getElementById('108').style.visibility='hidden'}" list="catrev" style="width: 100%;" class="form-control form-control-lg new2" placeholder="3eme Enfant" required>
+                        <option disabled selected hidden>3ème Enfant</option>
+
+                        <option value="1" selected>Pas d'enfant</option>
+                         <option value="2">Enfant n’est plus à charge</option>
+                         <option value="3">Enfant à charge dont l’âge est ≤ 20 ans</option>
+                         <option value="4">Enfant dont l’âge est ≤ 25 ans poursuivant ses études supérieures sans bourse</option>
+                         <option value="5">Enfant infirme</option>
+                         </select>
+                </div>
+                <div class="col-3">
+                    <label id="109" class="label2" style="visibility: hidden;font-family: 'Times New Roman', Times, serif;" id="REVNET">4ème Enfant</label>
+
+                    <select id="Enf4" onfocus="(document.getElementById('109').style.visibility='visible')" onblur="if(this.value=='4ème Enfant'){document.getElementById('109').style.visibility='hidden'}" list="catrev" style="width: 100%;" class="form-control form-control-lg new2" placeholder="4eme Enfant" required>
+                        <option disabled selected hidden>4ème Enfant</option>
+
+                        <option value="1" selected>Pas d'enfant</option>
+                         <option value="2">Enfant n’est plus à charge</option>
+                         <option value="3">Enfant à charge dont l’âge est ≤ 20 ans</option>
+                         <option value="4">Enfant dont l’âge est ≤ 25 ans poursuivant ses études supérieures sans bourse</option>
+                         <option value="5">Enfant infirme</option>
+                         </select>
+                </div>
+            </div>
+            <br>
+            </div>
+        </div>
+        </div>
+        <br>
+            <div>
+            
+           
+           
+                <div  id="table" style="display: none;">
+                    
+                    <hr/>
+                    <br>
+                    <h3 class="text-center" style="font-family: 'Times New Roman', Times, serif;color:rgb(63, 62, 62);">Gain Fiscal</h3>
+<br>
+                    <br>
+                <table class="table" >
+                    <thead>
+                        <tr class="bg-info">
+                            <th scope="col"></th>
+                            <th scope="col" class="text-center">Sans Projet Avenir</th>
+                            <th scope="col"  class="text-center">Avec Projet Avenir de 
+							<div class="text-center" id="edi"></div>
+							</div>
+							</th>
+							<th scope="col"  class="text-center">Projet Avenir Optimal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Montant Projet Avenir </td>
+                            <td class="text-center">0 TND</td>
+                            <td id="MtntPa" class="text-center"></td>
+							<td id="MtntPaOpt" class="text-center"></td>
+                        </tr>
+                        <tr>
+                            <td>Revenu net imposable </td>
+                            <td id="RevNetImpo" class="text-center"></td>
+                            <td id="RevNetImpoPA" class="text-center"></td>
+							<td id="RevNetImpoPAOpt" class="text-center"></td>
+                        </tr>
+                        <tr>
+                            <td>Revenu net imposable après placement </td>
+                            <td id="RevNetApPl" class="text-center"></td>
+                            <td id="RevNetApPlPa" class="text-center"></td>
+							<td id="RevNetApPlPaOpt" class="text-center"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Impôt dû </strong></td>
+                           <td id="ImpDu" class="text-center"> </td>
+                           <td id="ImpDuPa" class="text-center"></td>
+						   <td id="ImpDuPaOpt" class="text-center"> </td>
+                        </tr>
+                        <tr class="bg-info">
+                            <td>Gain d'impôt annuel </td>
+                            <td class="text-center">0 TND</td>
+                            <td id="GainImpAn" class="text-center"></td>
+							<td id="GainImpAnOpt" class="text-center"></td>
+                        </tr>
+                        <tr>
+                            <td>Gain d'impôt mensuel </td>
+                            <td class="text-center">0 TND</td>
+                            <td id="GainImpMens" class="text-center"></td>
+							<td id="GainImpMensOpt" class="text-center"></td>
+                        </tr>
+                        <tr>
+                            <td>Gain d'impôt en % </td>
+                            <td class="text-center">0 %</td>
+                            <td id="GainImpPA" class="text-center"></td>
+							<td id="GainImpPAOpt" class="text-center"></td>
+
+                        </tr>
+                        <tr class="bg-info">
+                            <td>Gain d'impôt en % du placement Projet Avenir </td>
+                            <td class="text-center">-</td>
+                            <td id="GainImpPla" class="text-center"></td>
+							<td id="GainImpPlaOpt" class="text-center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            <div id="result" >
+                
+                <div  id="table1" style="display: none;" >
+            <br><br>
+
+                    <table class="table" >
+
+                        <thead>
+                            <tr class="bg-info">
+                            <th scope="col">Tranche Haute D'imposition</th>
+                            <th scope="col" class="text-center">Maximum Dedutctible</th>
+                            <th scope="col" id="PaAssV" class="text-center">Reduction Maximum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="thi" class="text-center"></td>
+                                <td id="MaxDed" class="text-center">0 TND</td>
+                                <td id="RedMax" class="text-center"></td>
+                            </tr>
+                        </tbody>
+
+                        <thead>
+                            <tr class="bg-info">
+                            <th scope="col">Total des Versements</th>
+                            <th scope="col" class="text-center">Vers Déductible Annuel</th>
+                            <th scope="col" id="PaAssV" class="text-center">Reduction Annuelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="SomVer" class="text-center"></td>
+                                <td id="vdeff" class="text-center"></td>
+                                <td id="RedAnn" class="text-center"></td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                </div>
+                
+                <div id="table2" style="display: none;">
+                    <br>
+                    <hr/>
+<br>
+                    <h3 class="text-center" style="font-family: 'Times New Roman', Times, serif;color:rgb(63, 62, 62);">Résultats</h3>
+                    <br><br>
+                    <table class="table" >
+                        <thead>
+                            <tr class="bg-info">
+                                <th scope="col"></th>
+                                <th scope="col" class="text-center">Total des Versements</th>
+
+                            <th scope="col" class="text-center">Taux de revalorisation</th>
+                            <th scope="col" class="text-center">Epargne constituée à l'échéance</th>
+                            <th scope="col" id="OutTypeRente"  style="display: none;" class="text-center">Rente</th>
+                         <th scope="col" id="TXX" class="text-center" >Taux de Rendement</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>TMG</td>
+                                <td id="SOMME1" class="text-center"></td>
+                                <td id="HypRev11" class="text-center"></td>
+                                <td id="ValAcqObj" class="text-center"></td>
+                                <td id="RtCt"  style="display: none;" class="text-center"></td>
+                                <td id="TRDM1" class="text-center" ></td>
+                            </tr>
+                            <tr>
+                                <td>Taux Prévisionnel</td>
+                                <td id="SOMME2" class="text-center"></td>
+
+                                <td id="HypRev22" class="text-center"></td>
+                                <td id="ValAcqObj1" class="text-center"></td>
+                                <td id="RtCt1" style="display: none;" class="text-center"></td>
+                                <td id="TRDM2" class="text-center"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                
+            </div>
+            
+
+          
+        </div>
+        <div>
+            
+           
+           
+            <div  id="table" style="display: none;">
+            <table class="table" >
+                <thead>
+                    <tr class="bg-info">
+                        <th scope="col"></th>
+                        <th scope="col" class="text-center">Sans PA</th>
+                        <th scope="col" id="PaAssV1" class="text-center">PA de</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Montant PA: </td>
+                        <td class="text-center">0 TND</td>
+                        <td id="MtntPa" class="text-center"></td>
+                    </tr>
+                    <tr>
+                        <td>Revenu net imposable: </td>
+                        <td id="RevNetImpo" class="text-center"></td>
+                        <td id="RevNetImpoPA" class="text-center"></td>
+                    </tr>
+                    <tr>
+                        <td>Revenu net imposable après placement: </td>
+                        <td id="RevNetApPl" class="text-center"></td>
+                        <td id="RevNetApPlPa" class="text-center"></td>
+                    </tr>
+                    <tr>
+                        <td>Impôt dû: </td>
+                        <td id="ImpDu" class="text-center"></td>
+                        <td id="ImpDuPa" class="text-center"></td>
+                    </tr>
+                    <tr class="bg-info">
+                        <td>Gain d'impôt annuel: </td>
+                        <td class="text-center">0 TND</td>
+                        <td id="GainImpAn" class="text-center"></td>
+                    </tr>
+                    <tr>
+                        <td>Gain d'impôt mensuel: </td>
+                        <td class="text-center">0 TND</td>
+                        <td id="GainImpMens" class="text-center"></td>
+                    </tr>
+                    <tr>
+                        <td>Gain d'impôt en %: </td>
+                        <td class="text-center">0,0 %</td>
+                        <td id="GainImpPA" class="text-center"></td>
+                    </tr>
+                    <tr class="bg-info">
+                        <td>Gain d'impôt en % du placement PA: </td>
+                        <td class="text-center">-</td>
+                        <td id="GainImpPla" class="text-center"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <br><br>
+        <div class="row" style="display: flex;justify-content: space-between;width: 100%;">
+            <br><br>
+            <div class="col-3"></div>
+
+            <div class="col-3">
+        <button type="button" class="btn btn-info btn-block" id="bcal" style="font-family: Arial, Helvetica, sans-serif;font-size: 20px;" >Calculer</button>
+    </div>
+        <div class="col-3">
+            <button type="button"  style="font-family: Arial, Helvetica, sans-serif;font-size: 20px;"  onclick="window.open('devis.html')" class="btn btn-info btn-block">Editer un devis</button>
+
+    </div>
+        <div class="col-3">
+
+    </div>
+    </div>
+        <br><br><br>
+    </div>
+    <br><br><br>
+
+    <div id="popup">
+        <div class="popup-content" style="background-image: url('src/b.png');">
+            <img src="src/logoassbiat.png">
+            <div class="log" id="lo">
+                <br>
+                <div class="img-rectangular">
+                <br>
+
+                <div class="row">
+                <div class="col-2">
+                    
+                    <img src="src/login1.jpg" style="border-radius: 50%;"></div>
+                <div class="col-10">
+                    <div class="floating-label-group1">
+
+                <input id="user" type="text" class="form-control form-control-lg" autocomplete="off" required>
+                <label class="floating-label">Nom d'utilisateur</label>       
+            </div>
+            </div>
+        </div>
+            </div>
+                <br>
+                <div class="img-rectangular">
+                <br>
+                <div class="row">
+                    <div class="col-2">
+                        
+                        <img src="src/pass.png" style="border-radius: 50%;"></div>
+                    <div class="col-10">
+                        <div class="floating-label-group1"> 
+                <input id="mdp" type="password" class="form-control form-control-lg" autocomplete="off" required>
+                <label class="floating-label">Mot de passe</label>
+            </div>
+            </div>
+                </div>
+            </div>
+                <br><br><br>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4"><button class="btn btn-info btn-block" style="font-family: Arial, Helvetica, sans-serif;" id="login">Login</button></div>
+
+                    <div class="col-4"></div>
+
+                
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4"> <button class="btn btn-info btn-block" style="font-family: Arial, Helvetica, sans-serif;" id="par1">Retour</button></div>
+
+                    <div class="col-4"></div>
+
+               
+                 </div>
+                <br>
+                <div class="alert alert-danger" id="alert" style="display: none;">Nom d'utilisateur ou mot de passe incorrect </div>
+            </div>
+            <div class="par" id="param" style="display: none;" style="background-image: url('src/b.png');">
+                <br><br>
+                
+                <h5>Taux technique (Valeur actuelle) :</h5>
+                <h5 id="TxTech" class="text-center"></h5>
+                <input type="number" id="inputTxTech" class="form-control form-control-lg" placeholder="Nouvelle valeur...">
+                <br><br>
+                <h5>Taux de frais des rentes (Valeur actuelle) :</h5>
+                <h5 id="TxFrRt" class="text-center"></h5>
+                <input type="number" id="inputTxFrRt" class="form-control form-control-lg" placeholder="Nouvelle valeur...">
+                <br><br>
+                <h5>Hypothese revalo 1 (Valeur actuelle) :</h5>
+                <h5 id="HypRev1" class="text-center"></h5>
+                <input type="number" id="inputHypRev1" class="form-control form-control-lg" placeholder="Nouvelle valeur...">
+                <br><br>
+                <h5>Hypothese revalo 2 (Valeur actuelle) :</h5>
+                <h5 id="HypRev2" class="text-center"></h5>
+                <input type="number" id="inputHypRev2" class="form-control form-control-lg" placeholder="Nouvelle valeur...">
+                <br><br>
+                <h5>Taux de révresion de la prime (Valeur actuelle) :</h5>
+                <h5 id="TxR" class="text-center"></h5>
+                <input type="number" id="inputTxR" class="form-control form-control-lg" placeholder="Nouvelle valeur...">
+                
+                <br><br><br>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4"><button style="font-family: Arial, Helvetica, sans-serif;" class="btn btn-info btn-block" id="app-para" style="border: black;">Appliquer</button></div>
+                    <div class="col-4"></div>
+
+                
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">  <button style="font-family: Arial, Helvetica, sans-serif;" class="btn btn-info btn-block" id="par2">Retour</button></div>
+                <div class="col-4"></div>
+                    
+                
+            </div>
+            <br>
+            <div class="alert alert-danger" id="alertpar" style="display: none;">Veuillez remplir tout les champs</div>
+            <div class="alert alert-success" id="alertpar1" style="display: none;">Valeurs modifiées aveec succes</div>
+    
+        </div>
+
+
+        </div>
+    </div>
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  
+  
+  
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
+<script type="text/javascript" src="js/TabMor.js"></script>
+
+    <script type="text/javascript" src="js/login.js"></script>
+    
+    <script type="text/javascript" src="js/sim-simple.js"></script>
+    <script type="text/javascript" src="js/parametre.js"></script>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
+</html>

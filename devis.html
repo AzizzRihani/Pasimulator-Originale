@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<title>Devis</title>
+	<link rel="icon" href="src/title.png" sizes="32x32" type="image/png">
+
+	<style>
+		div {
+			padding-left: 10px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<br><br>
+		<div class="row">
+			<div class="col-6"><img src="src/logoassbiat.png"></div>
+			<div class="col-6">
+				<h1>Simulation Projet Avenir</h1>
+			</div>
+		</div>
+		<br><br><br><br><br>
+		<h3 class="text-center">Préparez votre avenir et celui de votre famille avec Projet Avenir</h3>
+		<br><br>
+		<div class="border border-secondary">
+			<div class="row">
+				<div class="col-6">Date d'édition</div>
+				<div class="col-6"><strong id="date"></strong></div>
+			</div>
+		</div>
+		<br><br>
+		<div class="border border-secondary">
+			
+			<div class="row">
+				<div class="col-6">Nom de l'agence</div>
+				<div class="col-6" id="n-ag"></div>
+			</div>
+		</div>
+		<br><br>
+		<div class="border border-secondary">
+			<div class="row">
+				<div class="col-6">Nom de l'assuré</div>
+				<div class="col-6"><strong id="n-as"></strong></div>
+			</div>
+			<div class="row">
+				<div class="col-6">Date de naissance de l'assuré</div>
+				<div class="col-6" id="date-as"></div>
+			</div>
+			<div class="row">
+				<div class="col-6">Age de l'assuré</div>
+				<div class="col-6" id="age-as"></div>
+			</div>
+		</div>
+		<br><br>
+		<div class="border border-secondary">
+			<div class="row">
+				<div class="col-6">Revenu</div>
+				<div class="col-6" id="tdr"></div>
+			</div>
+			<!--<div class="row">
+				<div class="col-6">Tranche haute d'imposition</div>
+				<div class="col-6" id="thi"> </div> 
+			</div>-->
+			<div class="row">
+				<div class="col-6">Versement annuel déductible</div>
+				<div class="col-6" id="vad"></div>
+			</div>
+			<div class="row">
+				<div class="col-6">Economie d'impôt annuelle</div>
+				<div class="col-6" id="edi"></div>
+			</div>
+			<div class="row">
+				<div class="col-6">Versement maximum annuel déductible</div>
+				<div class="col-6" id="vmad"></div>
+			</div>
+		</div>
+		<br><br>
+		<div class="border border-secondary">
+			<div class="row">
+				<div class="col-6">Versement initial</div>
+				<div class="col-6" id="veri"></div>
+			</div>
+			<div class="row">
+				<div class="col-6">Versement périodique</div>
+				<div class="col-6" id="verp"></div>
+			</div>
+			<div class="row">
+				<div class="col-6">Périodicité des versements</div>
+				<div class="col-6" id="per"></div>
+			</div>
+			<div class="row">
+				<div class="col-6">Durée de la phase d'épargne</div>
+				<div class="col-6" id="dobj"></div>
+			</div>
+			<div class="row">
+				<div class="col-6">Age à l'issue de la phase d'épargne</div>
+				<div class="col-6" id="aobj"></div>
+			</div>
+			<div class="row">
+				<div class="col-6">Total des versements pendant la phase d'épargne</div>
+				<div class="col-6" id="tvpdo"></div>
+			</div>
+			<div class="row">
+				<div class="col-6" id="nbrAnRtCt" style="display: none;">Nombre d'années de service de la rente certaine</div>
+				<div class="col-6" id="nbrAnRtCt1" style="display: none;"><strong id="nasrc"></strong></div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<div>
+			<div class="row" style="background-color: #a8a8a8;padding-left: 0;">
+				<div class="col-6  border border-secondary"><strong>Hypothése revalorisation*</strong></div>
+				<div class="col-3  border border-secondary"><strong  id="HypRev1"></strong></div>
+				<div class="col-3  border border-secondary"><strong id="HypRev2"></strong></div>
+			</div>
+			<div class="row" style="padding-left: 0;">
+				<div class="col-6  border border-secondary" style="padding-left: 0;">
+					<div>Valeur acquise au terme de la phase d'épargne</div>
+					<div id="Gain" style="display: none;">Gain réalisable avantage fiscal compris</div>
+					<div>Taux de rendement après 8 ans**</div>
+
+					
+					<div id="RentType" style="display: flex;"></div>
+				</div>
+				<div class="col-3  border border-secondary" style="padding-left: 0;">
+					<div id="vatdo1"></div>
+					<div id="grafc1" style="display: none;"></div>
+					<div id="txr1"></div>
+
+					
+					<div id="remc1" style="display: flex;"></div>
+				</div>
+				<div class="col-3  border border-secondary" style="padding-left: 0;">
+					<div id="vatdo2"></div>
+					<div id="grafc2" style="display: none;"></div>
+					<div id="txr2"></div>
+
+					
+					<div id="remc2" style="display: flex;"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-6"></div>
+			<div class="col-6 text-center"><!--les montants sont exprimés en dinars--></div>
+		</div>
+		<br>
+		<strong>*Les valeurs sont fournies à titre indicatif et ne constituent en aucun cas un engagement contractuel</strong><br>
+		<strong>** Taux de rendement net en tenant compte de l'avantage fiscal</strong><br>
+		<strong>NB : En cas de rachat avant 8 ans une régularisation fiscale sera exigée et une retenue à la source de 20% sera appliquée sur les rendements financiers réalisés</strong>
+		<br>
+		<br>
+		<br>
+		
+		<div class="row">
+			<div class="col-3"></div>
+			<div class="col-3"></div>
+			<div class="col-3"></div>
+			<div class="col-3">
+				<button type="button" class="btn btn-success btn-block" id="imprimerdev" style="width: 100%;" onclick="Imprimer()">Imprimer</button>
+
+			</div>
+			<br>
+			<br>
+		</div>
+
+	</div>
+	<script type="text/javascript" src="js/sim-simple.js"></script>
+	<script src="js/devis.js"></script>
+	
+
+</body>
+
+</html>

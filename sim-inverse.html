@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+
+.image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    margin:-60px 0 0 -60px;
+    -webkit-animation:spin 6s linear infinite;
+    -moz-animation:spin 6s linear infinite;
+    animation:spin 6s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+.floating-label-group1 {
+	position: relative;
+	margin-top: 35px;
+	margin-bottom: 25px;
+}
+
+	.floating-label1 {
+        font-family: 'Times New Roman', Times, serif;
+		font-size: 18px;
+		color: #cccccc;
+		position: absolute;
+		pointer-events: none;
+		top: 9px;
+		left: 12px;
+		transition: all 0.1s ease;
+	}
+    .floating-label1 {
+        font-family: 'Times New Roman', Times, serif;
+		font-size: 18px;
+		color: #cccccc;
+		position: absolute;
+		pointer-events: none;
+		top: 9px;
+		left: 12px;
+		transition: all 0.1s ease;
+	}
+    
+    .img-rectangular:hover img {
+  transform-origin: left top;
+  animation: a 2000ms ease-in-out forwards;
+}
+@keyframes a {
+  to {
+    transform: scale(1.15);
+  }
+}
+@keyframes b {
+  to {
+    transform: scale(1.05);     
+  }
+}
+.img-rectangular1:hover img {
+  transform-origin: left bottom;
+  animation: b 2000ms ease-in-out forwards;
+}
+
+	input:focus ~ .floating-label1,
+	input:not(:focus):valid ~ .floating-label1 {
+		top: -36px;
+        font-family: 'Times New Roman', Times, serif;
+		bottom: 0px;
+		left: 0px;
+		font-size: 20px;
+		opacity: 1;
+		color: #404040;
+	}
+    .floating-label-group {
+        font-family: 'Times New Roman', Times, serif;
+	position: relative;
+	margin-top: 15px;
+	margin-bottom: 25px;
+}
+
+	.floating-label {
+        font-family: 'Times New Roman', Times, serif;
+		font-size: 18px;
+		color: #cccccc;
+		position: absolute;
+		pointer-events: none;
+		top: 9px;
+		left: 12px;
+		transition: all 0.1s ease;
+	}
+    .floating-label {
+        font-family: 'Times New Roman', Times, serif;
+		font-size: 18px;
+		color: #cccccc;
+		position: absolute;
+		pointer-events: none;
+		top: 9px;
+		left: 12px;
+		transition: all 0.1s ease;
+	}
+    
+
+	input:focus ~ .floating-label,
+	input:not(:focus):valid ~ .floating-label {
+        font-family: 'Times New Roman', Times, serif;
+		top: -36px;
+		bottom: 0px;
+		left: 0px;
+		font-size: 20px;
+		opacity: 1;
+		color: #404040;
+	}
+    .label2{
+        font-family: 'Times New Roman', Times, serif;
+        top: -36px;
+		bottom: 0px;
+		left: 0px;
+		font-size: 18px;
+		opacity: 1;
+		color: #404040;
+
+    }
+    .label3{
+        font-family: 'Times New Roman', Times, serif;
+        top: -36px;
+		bottom: 0px;
+		left: 0px;
+		font-size: 14px;
+		opacity: 1;
+		color: #404040;
+
+    }
+label{
+    font-family: 'Times New Roman', Times, serif;
+		font-size: 14px;
+
+}
+
+button {
+    font-family: 'Times New Roman', Times, serif;
+
+}
+select{
+    
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+h5{
+    
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+th{
+    
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+td{
+    
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+li{
+    
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+h6{
+    
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+
+input{
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+        
+       /* input:invalid{
+    border: 2px solid rgb(173, 10, 10);
+}
+input:valid{
+    border: 2px solid green;
+}*/
+option {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+nav {
+    background: rgb(7,48,33);
+background: radial-gradient(circle, rgba(7,48,33,1) 0%, rgba(63,97,77,1) 0%, rgba(9,102,63,0.47692580450148814) 54%);}
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <title>Simulation Inverse</title>
+    <link rel="icon" href="src/title.png" sizes="32x32" type="image/png">
+
+</head>
+
+<body style="background-image: url('src/b.png');">
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light btn-lg navbar fixed-top" style="border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;" >
+        <div class="row" style="display: flex;justify-content: space-between;width: 100%;">
+            <div class="col-3">
+                <img src="src/logoassbiat.png">
+            </div>
+            <div class="col-1">
+            </div>
+            <div class="col-1">
+                <div class="navbar-brand">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                <a1 class="nav-link" style="font-family: Arial, Helvetica, sans-serif;">
+                Agence: </a1>
+                        </li>
+                        </ul>
+                        </div>
+            </div>
+            <div class="col-3"> 
+                <a class="nav-link">
+                <select  style="font-family: Arial, Helvetica, sans-serif;width: 90%;"  id="agnc" list="catrev"  class="form-control form-control new2" placeholder="" required>
+                <option disabled selected hidden id="AGC" style="font-family: Arial, Helvetica, sans-serif;" ></option>
+                <option value="Nabeul" ref="1">Nabeul</option>
+                <option value="Hammamet" ref="1">Hammamet</option>
+                <option value="Bir M'Chergua" ref="2">Bir M'Chergua</option>
+                <option value="Grombalia" ref="3">Grombalia</option>
+                <option value="Menzel Bouzelfa" ref="4">Menzel Bouzelfa</option>
+                <option value="Korba" ref="5">Korba</option>
+                <option value="El Manar" ref="1">El Manar</option>
+                <option value="Bab Souika" ref="2">Bab Souika</option>
+                <option value="Utique" ref="3">Utique</option>
+                <option value="Hammam Sousse" ref="4">Hammam Sousse</option>
+                <option value="Kairouan" ref="5">Kairouan</option>
+                <option value="Oueslatia" ref="1">Oueslatia</option>
+                <option value="Teboulba" ref="2">Teboulba</option>
+                <option value="Jamel Abdennaceur" ref="3">Jamel Abdennaceur</option>
+                <option value="Sfax 5 Aout" ref="4">Sfax 5 Aout</option>
+                <option value="Les Berges du Lac" ref="5">Les Berges du Lac</option>
+                <option value="Sousse Khezama" ref="1">Sousse Khezama</option>
+                <option value="Avenue de Paris II" ref="2">Avenue de Paris II</option>
+                <option value="El Hafsia" ref="3">El Hafsia</option>
+                <option value="Cahrguia II" ref="4">Cahrguia II</option>
+                <option value="Sousse Bab Bhar" ref="5">Sousse Bab Bhar</option>
+                <option value="Mahdia" ref="1">Mahdia</option>
+                <option value="Sousse Nord" ref="2">Sousse Nord</option>
+                <option value="Monastir" ref="3">Monastir</option>
+                <option value="Ksar Helal" ref="3">Ksar Helal</option>
+                <option value="Kalaa Essquira" ref="4">Kalaa Essquira</option>
+                <option value="M'saken" ref="5">M'saken</option>
+                <option value="Ksibet Mediouni" ref="1">Ksibet Mediouni</option>
+                <option value="Sousse Corniche" ref="2">Sousse Corniche</option>
+                <option value="Sidi Bou Ali" ref="3">Sidi Bou Ali</option>
+                <option value="Tozeur" ref="4">Tozeur</option>
+                <option value="Sfax Centre" ref="5">Sfax Centre</option>
+                <option value="Sfax 2000" ref="1">Sfax 2000</option>
+                <option value="Djerba" ref="2">Djerba</option>
+                <option value="Sfax Thameur" ref="2">Sfax Thameur</option>
+                <option value="Sfax 18 Janvier 1952" ref="3">Sfax El Habib</option>
+                <option value="Sfax Hilal" ref="4">Sfax 18 Janvier 1952</option>
+                <option value="Bir Ali Ben Khelifa" ref="5">Bir Ali Ben Khelifa</option>
+                <option value="Sfax Foire" ref="1">Sfax Foire</option>
+                <option value="Sfax Harzallah" ref="2">Sfax Harzallah</option>
+                <option value="Gabes" ref="3">Gabes</option>
+                <option value="Sfax Marlburg" ref="4">Sfax Marlburg</option>
+                <option value="Sfax Hached" ref="5">Sfax Hached</option>
+                 <option value="Sfax Gremda" ref="4">Sfax Gremda</option>
+                <option value="Sfax Nord" ref="5">Sfax Nord</option>
+                <option value="Sfax Medina" ref="1">Sfax Medina I</option>
+                <option value="Mahres" ref="2">Mahres</option>
+                <option value="Sakiet Ezzit" ref="3">Sakiet Ezzit</option>
+                <option value="El Hencha" ref="4">El Hencha</option>
+                <option value="Bizerte" ref="5">Bizerte</option>
+                <option value="Megrine" ref="2">Megrine</option>
+                <option value="El Alia" ref="3">El Alia</option>
+                <option value="Béja" ref="4">Béja</option>
+                <option value="Mateur" ref="5">Mateur</option>
+                <option value="Galaxie" ref="1">Galaxie</option>
+                <option value="El Ouardia" ref="2">El Ouardia</option>
+                <option value="Rue De Syrie" ref="3">Rue De Syrie</option>
+                <option value="AV H.Bourguiba IV" ref="4">AV H.Bourguiba IV</option>
+                <option value="Avenue De France" ref="5">Avenue De France</option>
+                <option value="Comptoire Des Particuliers" ref="1">Comptoire Des Particuliers</option>
+                <option value="Avenue de Paris I" ref="2">Avenue de Paris I</option>
+                <option value="El Jazira I" ref="3">El Jazira I</option>
+                <option value="Charguia I" ref="4">Charguia I</option>
+                <option value="Lafayette PP" ref="3">Lafayette PP</option>
+                <option value="El Menzel I" ref="4">El Menzel I</option>
+                <option value="El Menzeh VI" ref="5">El Menzeh VI</option>
+                <option value="Avenue de Carthage" ref="1">Avenue de Carthage</option>
+                <option value="El Menzah VII" ref="1">El Menzah VII</option>
+                <option value="International" ref="1">International</option>
+                <option value="Mannouba" ref="2">Mannouba</option>
+                <option value="Ben Arous" ref="3">Ben Arous</option>
+                <option value="Hédi Chaker" ref="4">Hédi Chaker</option>
+                <option value="Le Kram" ref="5">Le Kram</option>
+                <option value="Ariana Forum" ref="1">Ariana Forum</option>
+                <option value="Le Bardo" ref="2">Le Bardo</option>
+                <option value="El Jazira II" ref="3">El Jazira II</option>
+                <option value="Tunis Medina" ref="4">Tunis Medina</option>
+                <option value="Jendouba" ref="5">Jendouba</option>
+                <option value="Ennasr" ref="3">Ennasr</option>
+                <option value="Campus" ref="3">Campus</option>
+                <option value="Hammamet Centre" ref="5">Hammamet Centre</option>
+                <option value="Hammamet M'rezga" ref="1">Hammamet M'rezga</option>
+                <option value="AGENCE DU PERSONNEL" ref="1">AGENCE DU PERSONNEL</option>
+                <option value="Sousse Médina" ref="2">Sousse Médina</option>
+                <option value="Jardins El Kantaoui" ref="3">Jardins El Kantaoui</option>
+                <option value="Mohamed V" ref="4">Mohamed V</option>
+                <option value="Manaret. Hammamet" ref="5">Manaret. Hammamet</option>
+                <option value="Ezzahrouni" ref="1">Ezzahrouni</option>
+                <option value="Hammam-lif" ref="2">Hammam-lif</option>
+                <option value="Carnoy" ref="3">Carnoy</option>
+                <option value="Ariana Ennour" ref="4">Ariana Ennour</option>
+                <option value="Lafayette PME" ref="5">Lafayette PME</option>
+                <option value="La Marsa" ref="3">La Marsa</option>
+                <option value="Sfax El Jadida" ref="4">Sfax El Jadida</option>
+                <option value="Ariana Nord" ref="1">Ariana Nord</option>
+                <option value="Marina Hammamet" ref="2">Marina Hammamet</option>
+                <option value="Mahdia II" ref="3">Mahdia II</option>
+                <option value="Sfax Sakiet Eddeyer" ref="4">Sfax Sakiet Eddeyer</option>
+                <option value="Sfax Zitouna" ref="5">Sfax Zitouna</option>
+                <option value="El Bouhaira" ref="1">El Bouhaira</option> 
+                <option value="JERBA Midoun" ref="4">JERBA Midoun</option>
+                <option value="Tunis City Géant" ref="3">Tunis City Géant</option>
+                <option value="Monastir II" ref="4">Monastir II</option>
+                <option value="Sousse Belahouane" ref="5">Sousse Belahouane</option>
+                <option value="Hédi Nouira Ennasr" ref="1">Hédi Nouira Ennasr</option>
+                <option value="Cite Des Sciences" ref="1">Cite Des Sciences</option>
+                <option value="Sousse Hached" ref="1">Sousse Hached</option>
+                <option value="SFAX ROUTE DE TUNIS" ref="2">SFAX ROUTE DE TUNIS</option>
+                <option value="JAMMEL" ref="3">JAMMEL</option>
+                <option value="ZARZIS" ref="4">ZARZIS</option>
+                <option value="MONTPLAISIR" ref="5">MONTPLAISIR</option>
+                <option value="SFAX TENIOUR" ref="1">SFAX TENIOUR</option>
+                <option value="ELFAHS" ref="2">ELFAHS</option>
+                <option value="Gremda Merkez Kamoun" ref="3">Gremda Merkez Kamoun</option>
+                <option value="M'Ghira" ref="4">M'Ghira</option>
+                <option value="Sahline" ref="5">Sahline</option>
+                <option value="Menzel Jemli" ref="3">Menzel Jemli</option>
+                <option value="Sahloul" ref="3">Sahloul</option>
+                <option value="Moknine" ref="5">Moknine</option>
+                <option value="Sidi Bou Said" ref="1">Sidi Bou Said</option>
+                <option value="Menzel Bourguiba" ref="1">Menzel Bourguiba</option>
+                <option value="Marsa II" ref="2">Marsa II</option>
+                <option value="Menzel Temime" ref="3">Menzel Temime</option>
+                <option value="Dar Chaabene" ref="4">Dar Chaabene</option>
+                <option value="Kelibia" ref="5">Kelibia</option>
+                <option value="Soukra" ref="1">Soukra</option>
+                <option value="Oued Ellil" ref="2">Oued Ellil</option>
+                <option value="Le Kef" ref="3">Le Kef</option>
+                <option value="Ezzahra" ref="4">Ezzahra</option>
+                <option value="Boumhel" ref="5">Boumhel</option>
+                <option value="Enfidha" ref="3">Enfidha</option>
+                <option value="Raoud El Ghazala" ref="4">Raoud El Ghazala</option>
+                <option value="Kasserine" ref="1">Kasserine</option>
+                <option value="El Mourouj 4" ref="2">El Mourouj 4</option>
+                <option value="Les Jardins Du Lac" ref="3">Les Jardins Du Lac</option>
+                <option value="El Menchia" ref="4">El Menchia</option>
+                <option value="El Menzah 9" ref="5">El Menzah 9</option>
+                <option value="Soliman" ref="1">Soliman</option>
+                <option value="Sidi Abdelhamid" ref="4">Sidi Abdelhamid</option>
+                <option value="Ain Zaghouan" ref="3">Ain Zaghouan</option>
+                <option value="Laouina" ref="4">Laouina</option>
+                <option value="Cite EL Khadra" ref="5">Cite EL Khadra</option>
+                <option value="Cite Ettadhamen" ref="1">Cite Ettadhamen</option>
+                <option value="Sfax Ettouta" ref="1">Sfax Ettouta</option>
+                <option value="Sliana" ref="1">Sliana</option>
+                <option value="Sidi Bouzid" ref="2">Sidi Bouzid</option>
+                <option value="Nabeul Oued Souhil" ref="3">Nabeul Oued Souhil</option>
+                <option value="Sidi Hassine" ref="4">Sidi Hassine</option>
+                <option value="Bab Bnet" ref="5">Bab Bnet</option>
+                <option value="Jardins Menzah 2" ref="1">Jardins Menzah 2</option>
+                <option value="Gafsa" ref="2">Gafsa</option>
+                <option value="Bizerte Corniche" ref="3">Bizerte Corniche</option>
+                <option value="Rades" ref="4">Rades</option>
+                <option value="Ibn Khaldoun" ref="5">Ibn Khaldoun</option>
+                <option value="Gabes 2" ref="3">Gabes 2</option>
+                <option value="Ksar Hellal" ref="3">Ksar Hellal</option>
+                <option value="Sousse Erriadh" ref="5">Sousse Erriadh</option>
+                <option value="Sayada" ref="1">Sayada</option>
+                <option value="Bousalem" ref="1">Bousalem</option>
+                <option value="Ouerdanine" ref="2">Ouerdanine</option>
+                <option value="Regueb" ref="3">Regueb</option>
+                <option value="Montfleury" ref="4">Montfleury</option>
+                <option value="Ras Jebel" ref="5">Ras Jebel</option>
+                <option value="Kalaa Kebira" ref="1">Kalaa Kebira</option>
+                <option value="Beni Khalled" ref="1">Beni Khalled</option>
+                <option value="Medenine" ref="1">Medenine</option>
+                <option value="Nouvelle Medina" ref="1">Nouvelle Medina</option>
+                <option value="RTE Mzl Chaker" ref="1">RTE Mzl Chaker</option>
+                <option value="Ksour Essaf" ref="1">Ksour Essaf</option>
+                <option value="Mornag" ref="1">Mornag</option>
+                <option value="Kebili" ref="1">Kebili</option>
+                <option value="Gammarth" ref="1">Gammarth</option>
+                <option value="Chebba" ref="1">Chebba</option>
+                <option value="RTE Lafrane" ref="1">RTE Lafrane</option>
+                <option value="Borj Louzir" ref="1">Borj Louzir</option>
+                <option value="Denden" ref="1">Denden</option>
+                <option value="El Jem" ref="1">El Jem</option>
+                <option value="Zagouan" ref="1">Zagouan</option>
+                <option value="Testour" ref="1">Testour</option>
+                <option value="Borj Cedria" ref="1">Borj Cedria</option>
+                <option value="Tebourba" ref="1">Tebourba</option>
+                <option value="Tejerouine" ref="1">Tejerouine</option>
+                <option value="La Goulette" ref="1">La Goulette</option>
+                <option value="Mjez El Bab" ref="1">Mjez El Bab</option>
+                <option value="Tataouine" ref="1">Tataouine</option>
+                <option value="Cite Ezzouhour" ref="1">Cite Ezzouhour</option>
+                <option value="Enfidha" ref="1">Enfidha</option>
+                <option value="Souassi" ref="1">Souassi</option>
+                <option value="Rte Saltnia" ref="1">Rte Saltnia</option>
+                <option value="Les Jardins de Carthage" ref="1">Les Jardins de Carthage</option>
+                <option value="Moncef Bey" ref="1">Moncef Bey</option>
+                <option value="Monastir 3" ref="1">Monastir 3</option>
+                <option value="Sahloul 2" ref="1">Sahloul 2</option>
+                <option value="Souk Lahad" ref="1">Souk Lahad</option>
+                <option value="Mornaguia" ref="1">Mornaguia</option>
+                <option value="Yasminet" ref="1">Yasminet</option>
+                <option value="Mhamdia" ref="1">Mhamdia</option>
+                <option value="Bardo 2" ref="1">Bardo 2</option>
+                <option value="Route DE Gammarth" ref="1">Route DE Gammarth</option>
+                <option value="Route Aeroport" ref="1">Route Aeroport</option>
+                <option value="Hotel Ibis" ref="1">Hotel Ibis</option>
+                <option value="Monastir Mall" ref="1">Monastir Mall</option>
+               
+
+                
+                
+                
+                
+            
+            </select></a></div>
+            
+            <div class="col-3">
+                <div class="navbar-brand">
+                    <ul class="navbar-nav">
+                        <li class="nav-item " style="visibility: hidden;"> <a class="nav-link" style="font-family: Arial, Helvetica, sans-serif;" >Simulation simple</a></li>
+                        <li class="nav-item " > <a class="nav-link" onclick="window.open('sim-simple.html')"  style="font-family: Arial, Helvetica, sans-serif;" >Simulation simple</a></li>
+                        <span style="visibility: hidden;" class="navbar-toggler-icon"></span>
+                        <span style="visibility: hidden;" class="navbar-toggler-icon"></span>
+                        <span style="visibility: hidden;" class="navbar-toggler-icon"></span>
+                        
+                        <button type="button" class="btn btn-outline-secondary btn-block" id="par" style="font-family: Arial, Helvetica, sans-serif;width: 25%;" >Paramètres</button>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <br><br><br>
+
+
+    <div class="container">
+        <br>
+        <h1 class="text-center" style="font-family: 'Times New Roman', Times, serif;color:rgb(63, 62, 62);">Simulation Inverse</h1>
+        <br><div class="img-rectangular"><br>
+        <div class="row">
+            <div class="col-2"><img  src="src/projet.jpg" style="border-radius: 50%;"></div>
+            <div class="col-10">
+        <h2 style="font-family: 'Times New Roman', Times, serif;color: rgb(92, 92, 92);">Capital</h2>
+        <br>
+        <div class="row">
+            <div class="col-4">
+                <div class="floating-label-group1">
+                    <input type="number" name="azaz" id="inCap" style="width: 100%;" class="form-control form-control-lg new5" autocomplete="off"  required>
+                    <label id ="a123" class="floating-label1">Capital</label>
+                </div> 
+
+            
+            </div>
+            <div class="col-4">
+                <div class="floating-label-group1">
+
+                <input type="number" id="inPer" style="width: 100%;" class="form-control form-control-lg"  autocomplete="off"  required>
+                <label class="floating-label1">Periode de versement</label>
+   
+            </div>
+            </div>
+           
+            <div class="col-4">
+                <label class="label2" id="freqv1" style="visibility: hidden;">Fréquence de versement</label>
+
+                <select style="font-family: 'Times New Roman', Times, serif;color:rgb(63, 62, 62);" id="per" list="catrev" style="width: 100%;" class="form-control form-control-lg new2"  onfocus="(document.getElementById('freqv1').style.visibility='visible')" onblur="if(this.value=='Fréquence de versement'){document.getElementById('freqv1').style.visibility='hidden'}" required>
+                    <option disabled selected hidden style="font-family: 'Times New Roman', Times, serif;color:rgb(63, 62, 62);">Fréquence de versement</option>
+                    <option value="12" >Mensuelle</option>
+                    <option value="4" >Trimestrielle</option>
+                    <option value="2" >Semestrielle</option>
+                    <option value="1" >Annuelle</option>
+                    
+                     </select>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+
+            <div class="col-4">        <button type="button" onclick="f1()" class="btn btn-info btn-block" id="bcal" style="font-family: Arial, Helvetica, sans-serif;font-size: 20px;" >Calculer</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+    
+        <br><br>
+        <h5>Montant à verser périodiquement:</h5>
+        <h2 class="text-center" id="OutMtVers" style="font-family: 'Times New Roman', Times, serif;color: rgb(92, 92, 92);">
+        
+        </h2><br></div>
+        <hr style="border-top: 2px solid rgba(5, 0, 0, 0.3);">
+        <br><div class="img-rectangular"><br>
+        <div class="row">
+            <div class="col-2"><img  src="src/rente.jpg" style="border-radius: 50%;"></div>
+            <div class="col-10">
+        <h2 style="font-family: 'Times New Roman', Times, serif;color: rgb(92, 92, 92);">Rente Certaine</h2>
+        <br>
+        <div class="row">
+            <div class="col-4">
+                <div class="floating-label-group1">
+
+                <input type="number" id="inMtRt" style="width: 100%;" class="form-control form-control-lg" autocomplete="off" required>
+                <label class="floating-label1">Montant de la rente</label>
+
+            </div>
+            </div>
+            <div class="col-4">
+                <div class="floating-label-group1">
+
+                <input type="number" id="inDrRt" style="width: 100%;" class="form-control form-control-lg" autocomplete="off" required>
+                <label class="floating-label1">Durée de la rente</label>
+                </div>
+            </div>
+            
+            <div class="col-4">
+                <label class="label2" id="freqv2" style="visibility: hidden;">Périodicité de la rente</label>
+
+                <select style="font-family: 'Times New Roman', Times, serif;color:rgb(63, 62, 62);" id="inPerRt" list="catrev" style="width: 100%;" class="form-control form-control-lg new2"  onfocus="(document.getElementById('freqv2').style.visibility='visible')" onblur="if(this.value=='Périodicité de la rente'){document.getElementById('freqv2').style.visibility='hidden'}" required>
+                    <option disabled selected hidden style="font-family: 'Times New Roman', Times, serif;color:rgb(63, 62, 62);">Périodicité de la rente</option>
+                    <option value="12" >Mensuelle</option>
+                    <option value="4" >Trimestrielle</option>
+                    <option value="2" >Semestrielle</option>
+                    <option value="1" >Annuelle</option>
+                    
+                     </select>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+
+            <div class="col-4">        <button type="button" onclick="f3()" class="btn btn-info btn-block" id="bcal" style="font-family: Arial, Helvetica, sans-serif;font-size: 20px;" >Calculer</button>
+            </div>
+
+        </div>
+        </div>
+        </div>
+    
+        <br><br>
+        <h5>Capital lié à la rente :</h5>
+        <h2 class="text-center" id="OutCapRt" style="font-family: 'Times New Roman', Times, serif;color: rgb(92, 92, 92);">
+        </h2>
+        <br></div><br><br>
+        <div class="row">
+            <div class="col-4"></div>
+         <div class="col-4">
+        </div>
+
+        
+
+        
+        <div class="col-4"></div>
+
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+
+        </div>
+        <br><br><br>
+    </div>
+    <br><br><br>
+
+    <div id="popup">
+        <div class="popup-content" style="background-image: url('src/b.png');">
+            <img src="src/logoassbiat.png">
+            <div class="log" id="lo">
+                <br>
+                <div class="img-rectangular">
+                <br>
+
+                <div class="row">
+                <div class="col-2">
+                    
+                    <img src="src/login1.jpg" style="border-radius: 50%;"></div>
+                <div class="col-10">
+                    <div class="floating-label-group1">
+
+                <input id="user" type="text" class="form-control form-control-lg" autocomplete="off" required>
+                <label class="floating-label">Nom d'utilisateur</label>       
+            </div>
+            </div>
+        </div>
+            </div>
+                <br>
+                <div class="img-rectangular">
+                <br>
+                <div class="row">
+                    <div class="col-2">
+                        
+                        <img src="src/pass.png" style="border-radius: 50%;"></div>
+                    <div class="col-10">
+                        <div class="floating-label-group1"> 
+                <input id="mdp" type="password" class="form-control form-control-lg" autocomplete="off" required>
+                <label class="floating-label">Mot de passe</label>
+            </div>
+            </div>
+                </div>
+            </div>
+                <br><br><br>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4"><button class="btn btn-info btn-block" id="login">Login</button></div>
+
+                    <div class="col-4"></div>
+
+                
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4"> <button class="btn btn-info btn-block" id="par1">Retour</button></div>
+
+                    <div class="col-4"></div>
+
+               
+                 </div>
+                <br>
+                <div class="alert alert-danger" id="alert" style="display: none;">Nom d'utilisateur ou mot de passe incorrect </div>
+            </div>
+            <div class="par" id="param" style="display: none;" style="background-image: url('src/b.png');">
+                <br><br>
+                
+                <h5>Taux technique (Valeur actuelle) :</h5>
+                <h5 id="TxTech" class="text-center"></h5>
+                <input type="number" id="inputTxTech" class="form-control form-control-lg" placeholder="Nouvelle valeur...">
+                <br><br>
+                <h5>Taux de frais des rentes (Valeur actuelle) :</h5>
+                <h5 id="TxFrRt" class="text-center"></h5>
+                <input type="number" id="inputTxFrRt" class="form-control form-control-lg" placeholder="Nouvelle valeur...">
+                <br><br>
+                <h5>Hypothese revalo 1 (Valeur actuelle) :</h5>
+                <h5 id="HypRev1" class="text-center"></h5>
+                <input type="number" id="inputHypRev1" class="form-control form-control-lg" placeholder="Nouvelle valeur...">
+                <br><br>
+                <h5>Hypothese revalo 2 (Valeur actuelle) :</h5>
+                <h5 id="HypRev2" class="text-center"></h5>
+                <input type="number" id="inputHypRev2" class="form-control form-control-lg" placeholder="Nouvelle valeur...">
+                <br><br>
+                <h5>Taux de révresion de la prime (Valeur actuelle) :</h5>
+                <h5 id="TxR" class="text-center"></h5>
+                <input type="number" id="inputTxR" class="form-control form-control-lg" placeholder="Nouvelle valeur...">
+                
+                <br><br><br>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4"><button class="btn btn-info btn-block" id="app-para" style="border: black;">Appliquer</button></div>
+                    <div class="col-4"></div>
+
+                
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">  <button class="btn btn-info btn-block" id="par2">Retour</button></div>
+                <div class="col-4"></div>
+                    
+                
+            </div>
+            </div>
+            <br>
+            <div class="alert alert-danger" id="alertpar" style="display: none;">Veuillez remplir tout les champs</div>
+            <div class="alert alert-success" id="alertpar1" style="display: none;">Valeurs modifiées avec succes</div>
+    
+        </div>
+
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script src="js/sim-inverse.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/parametre.js"></script>
+   <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+</body>
+
+</html>
