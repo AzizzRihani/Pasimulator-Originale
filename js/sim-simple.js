@@ -520,7 +520,6 @@ function vv(){
     }
     else{
         document.getElementById("table2").style.display = "inline";
-
     }
 
 var sommeee = localStorage.getItem('SomVer');
@@ -539,14 +538,27 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
    
    
     var Dsous = new Date(document.getElementById('inDateSous').value);
-    
+   
+    var TypeVer=0;
+   if(TypeVer==0)
+   {
+    VerL=100000;
+    console.log("Versement libre");
+   }
+   else if(TypeVer==1)
+   {
+    var res = v * c * d - (-(f - c));
+    var res1 = c * v;
+   }
+
    
 
 
-    var res = v * c * d - (-(f - c));
-    var res1 = c * v;
     if(isNaN(res)){
         res = 0;
+    }
+    if(isNaN(VerL)){
+        VerL = 0;
     }
     if(isNaN(res1)){
         res1 = 0;
@@ -555,6 +567,9 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
         res2 = 0;
     }
     //document.getElementById('SomVer').innerHTML = formatMillier(res)+' TND';
+    if(TypeVer==0)
+        localStorage.setItem("SomVer", VerL);
+    else
     localStorage.setItem("SomVer", res);
 
     
@@ -1229,7 +1244,6 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
         else if(CatRev==4){
             $("#inRevenu").attr("placeholder", "Revenu annuel brut imposable (En Dinars)");
             
-            
         }
         
         
@@ -1325,8 +1339,11 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
             netImpApPlPA = 0;
         }
 		
-		
-			document.getElementById('vdeff').innerHTML = formatMillier(res1);
+            if(TypeVer)
+			document.getElementById('vdeff').innerHTML = formatMillier(VerL);
+            else
+            document.getElementById('vdeff').innerHTML = formatMillier(res1);
+
 			localStorage.setItem("VersAnnDed",res1);
 		
 		// var netImpApPlPAopt = formatMillier(Math.round((parseFloat(impotdu.toFixed(3)))*0.45));
@@ -1551,12 +1568,18 @@ var mntdeduct =AssVie;
 		document.getElementById('GainImpMens').innerHTML = formatMillier(Math.round(GainImpotMensOpt))+' TND';
 		document.getElementById('GainImpPA').innerHTML = GainImpotPAOpt+' %';
 		document.getElementById('GainImpPla').innerHTML = GainImpPlaOptS+' %';
+        if(Type==0)
+            document.getElementById('vdeff').innerHTML = formatMillier(VerL)+' TND';
+        else
 		document.getElementById('vdeff').innerHTML = formatMillier(MtntPaOpt2)+' TND';
 		localStorage.setItem("VersAnnDed",MtntPaOpt2); 
 		document.getElementById('RedAnn').innerHTML = formatMillier(GainImpotAnOpt)+' TND';
 		localStorage.setItem("EcoImp",GainImpotAnOpt);
 		mntdeduct=formatMillier(MtntPaOpt2);
-		document.getElementById('edi').innerHTML = formatMillier(localStorage.getItem('VersAnnDed'))+'TND';
+        if(TypeVer==0)
+        document.getElementById('edi').innerHTML = formatMillier(VerL)+'TND';
+        else
+		document.getElementById('edi').innerHTML = formatMillier(localStorage.getItem('VersAnnDed'))+'TND'; 
 		/*if (GainImpotAnOpt>=36000)
 		{document.getElementById('edi').innerHTML = '100 000 TND';}*/
 		}
@@ -1569,12 +1592,18 @@ var mntdeduct =AssVie;
 			 document.getElementById('GainImpMens').innerHTML = formatMillier(Math.round(GainImpotMens))+' TND';
 			 document.getElementById('GainImpPA').innerHTML = GainImpotPA+' %';
 			 document.getElementById('GainImpPla').innerHTML = GainImpPla+' %';
+             if(TypeVer==0)
+                document.getElementById('vdeff').innerHTML = formatMillier(VerL)+' TND';
+            else
 			document.getElementById('vdeff').innerHTML = formatMillier(res1)+' TND';
-			localStorage.setItem("VersAnnDed",res1); 
+			localStorage.setItem("VersAnnDed",res1);
 			document.getElementById('RedAnn').innerHTML = (formatMillier(Math.round(res2)))+' TND';
 			localStorage.setItem("EcoImp",res2);
 			mntdeduct=formatMillier(res1);
-			document.getElementById('edi').innerHTML = formatMillier(localStorage.getItem('VersAnnDed'))+' TND';
+            if(TypeVer==0)
+            document.getElementById('edi').innerHTML = formatMillier(VerL)+'TND';
+            else
+			document.getElementById('edi').innerHTML = formatMillier(localStorage.getItem('VersAnnDed'))+'TND';
 			
 			
 			
@@ -1625,12 +1654,14 @@ var mntdeduct =AssVie;
 		
 		document.getElementById('ImpDuPaOpt').innerHTML = formatMillier(Math.round((parseFloat(impotdu.toFixed(3)))*0.45))+' TND';
  
+        if(TypeVer==0)
+        document.getElementById('MtntPa').innerHTML = formatMillier(VerL)+' TND';
+        else
 		document.getElementById('MtntPa').innerHTML = formatMillier(AssVie2)+' TND';
 
 		document.getElementById('MaxDed').innerHTML = formatMillier(MtntPaOpt2)+' TND';
 		localStorage.setItem("VersMaxAnn",MtntPaOpt2);
 		
-	
 		
 		
 		
