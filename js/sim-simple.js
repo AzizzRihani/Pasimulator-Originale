@@ -539,7 +539,7 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
    
     var Dsous = new Date(document.getElementById('inDateSous').value);
    
-   var TypeVer=0;
+   var TypeVer=1;
    if(TypeVer==0)
    {
     VerL=100000;
@@ -1336,10 +1336,19 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
         //Revenu net imposable après placement sans PA
         
         document.getElementById('RevNetApPl').innerHTML = formatMillier(parseFloat(outRevenu.toFixed(3)))+' TND';
+
+        // revenu Net imposable avec PA 1ére année
         if(TypeVer==1)
-        var netImpApPlPA1An=outRevenu-res1An;
+            if(outRevenu<res1An)
+            {
+                var netImpApPlPA1An=outRevenu-res1;
+            }
+            else
+                var netImpApPlPA1An=outRevenu-res1An;
         else
         var netImpApPlPA1An=outRevenu;
+
+        
         document.getElementById('RevNetApPl1An').innerHTML = formatMillier(parseFloat(netImpApPlPA1An.toFixed(3)))+' TND';
         
         //Revenu net imposable après placement avec PA
@@ -1387,26 +1396,36 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
         else
         {
             if (VerL>=0 && VerL<5000){
-                var impotdu = (VerL-0)*0+0;
+                var impotdu = (outRevenu-0)*0+0;
+                var impotduVl = (VerL-0)*0+0;
             }
             else if (VerL>=5000 && VerL<20000){  // (sup - inf)*pourcentage + prev
-                var impotdu = (VerL-5000)*0.26+0;
+                var impotdu = (outRevenu-5000)*0.26+0;
+                var impotduVl = (VerL-5000)*0.26+0;
             }
             else if (VerL>=20000 && VerL<30000){
-                var impotdu = (VerL-20000)*0.28+3900;
+                var impotdu = (outRevenu-20000)*0.28+3900;
+                var impotduVl = (VerL-20000)*0.28+3900;
             }
             else if (VerL>=30000 && VerL<50000){
-                var impotdu = (VerL-30000)*0.32+6700;
+                var impotdu = (outRevenu-30000)*0.32+6700;
+                var impotduVl = (VerL-30000)*0.32+6700;
             }
             else if (VerL>=50000){
-                var impotdu = (VerL-50000)*0.35+13100;
+                var impotdu = (outRevenu-50000)*0.35+13100;
+                var impotduVl = (VerL-50000)*0.35+13100;
             }
             if(isNaN(impotdu)){
                 impotdu = 0;
             }
+            if(isNaN(impotduVl)){
+                impotduVl = 0;
+            }
         }
 
         document.getElementById('ImpDu').innerHTML = formatMillier(parseFloat(impotdu.toFixed(3)))+' TND';
+
+
         //CHANGE AZIZ RIHANI
         // Impot du PA
         //VP
@@ -1462,6 +1481,13 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
         //VP
         if(TypeVer==1)
             {
+                if(outRevenu<res1An)
+                    {
+                        var netImpApPlPA1An=res1An;
+                    }
+                    else
+                        var netImpApPlPA1An=outRevenu-res1An;
+
             if (netImpApPlPA1An>=0 && netImpApPlPA1An<5000){
                 var impotduPa1An = (netImpApPlPA1An-0)*0+0;
             }
@@ -1598,7 +1624,7 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
             var GainImpotTotal = (impotdu-impotduPa)*d;
             // VL
         else
-            var GainImpotTotal = impotdu*d;
+            var GainImpotTotal = impotduVl*d;
 
         if(isNaN(GainImpotTotal))
             {
@@ -1608,10 +1634,13 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
         // Gain d'impot 1 ere année
         //VP
         if(TypeVer==1)
-            var GainImpot1An = impotdu-impotduPa1An;
+            if(outRevenu<res1An)
+                    var GainImpot1An=impotduPa1An;
+                else
+                    var GainImpot1An = impotdu-impotduPa1An;
         // VL
         else
-            var GainImpot1An = impotdu;
+            var GainImpot1An = impotduVl;
         
         if(isNaN(GainImpot1An))
         {
@@ -1624,7 +1653,7 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
         var GainImpotAn = impotdu-impotduPa;
         // VL
         else
-        var GainImpotAn = impotdu;
+        var GainImpotAn = impotduVl;
 
         if(isNaN(GainImpotAn)){
             GainImpotAn = 0;
@@ -1645,13 +1674,19 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
         }
         
         // Gain d'impot de la 1ére année en %
+        if(TypeVer==1)
         var GainImpotPA1An = ((GainImpot1An/impotdu)*100).toFixed(1);
+        else
+        var GainImpotPA1An = ((GainImpot1An/impotduVl)*100).toFixed(1);
         if(isNaN(GainImpotPA1An)){
             GainImpotPA1An = 0;
         }
 
         // Gain d'impot en %
+        if(TypeVer==1)
         var GainImpotPA = ((GainImpotAn/impotdu)*100).toFixed(1);
+        else
+        var GainImpotPA = ((GainImpotAn/impotduVl)*100).toFixed(1);
         if(isNaN(GainImpotPA)){
             GainImpotPA = 0;
         }
@@ -1745,7 +1780,10 @@ var mntdeduct =AssVie;
 		{	
 		
 		document.getElementById('RevNetApPlPa').innerHTML = formatMillier(Math.round((parseFloat(netImpApPlPAopt.toFixed(3)))))+' TND';
+        if(TypeVer==1)
 		document.getElementById('ImpDuPa').innerHTML = formatMillier(Math.round((parseFloat(impotdu.toFixed(3)))*0.45))+' TND';
+        else
+        document.getElementById('ImpDuPa').innerHTML = formatMillier(Math.round((parseFloat(impotduVl.toFixed(3)))*0.45))+' TND';
 		document.getElementById('GainImpAn').innerHTML =formatMillier(Math.round(GainImpotAnOpt))+' TND';
 		document.getElementById('GainImpMens').innerHTML = formatMillier(Math.round(GainImpotMensOpt))+' TND';
 		document.getElementById('GainImpPA').innerHTML = GainImpotPAOpt+' %';
