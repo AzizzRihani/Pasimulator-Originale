@@ -824,6 +824,7 @@ background: radial-gradient(circle, rgba(7,48,33,1) 0%, rgba(63,97,77,1) 0%, rgb
                         <tr class="bg-info">
                             <th scope="col"></th>
                             <th scope="col" class="text-center">Sans Projet Avenir</th>
+                            <th scope="col" class="text-center">Avec Projet Avenir de la premiére année</th>
                             <th scope="col"  class="text-center">Avec Projet Avenir de 
 							<div class="text-center" id="edi"></div>
 							</div>
@@ -835,11 +836,13 @@ background: radial-gradient(circle, rgba(7,48,33,1) 0%, rgba(63,97,77,1) 0%, rgb
                         <tr>
                             <td>Montant Projet Avenir </td>
                             <td class="text-center">0 TND</td>
+                            <td id="MtntPa1An" class="text-center"></td>
                             <td id="MtntPa" class="text-center"></td>
 							<td id="MtntPaOpt" class="text-center"></td>
                         </tr>
                         <tr>
                             <td>Revenu net imposable </td>
+                            <td id="RevNetImpo" class="text-center"></td>
                             <td id="RevNetImpo" class="text-center"></td>
                             <td id="RevNetImpoPA" class="text-center"></td>
 							<td id="RevNetImpoPAOpt" class="text-center"></td>
@@ -847,30 +850,53 @@ background: radial-gradient(circle, rgba(7,48,33,1) 0%, rgba(63,97,77,1) 0%, rgb
                         <tr>
                             <td>Revenu net imposable après placement </td>
                             <td id="RevNetApPl" class="text-center"></td>
+                            <td id="RevNetApPl1An" class="text-center"></td>
                             <td id="RevNetApPlPa" class="text-center"></td>
 							<td id="RevNetApPlPaOpt" class="text-center"></td>
                         </tr>
                         <tr>
                             <td><strong>Impôt dû </strong></td>
                            <td id="ImpDu" class="text-center"> </td>
+                           <td id="ImpDu1An" class="text-center"> </td>
                            <td id="ImpDuPa" class="text-center"></td>
 						   <td id="ImpDuPaOpt" class="text-center"> </td>
                         </tr>
                         <tr class="bg-info">
                             <td>Gain d'impôt annuel </td>
                             <td class="text-center">0 TND</td>
+                            <td id="GainImp1An" class="text-center"></td>
                             <td id="GainImpAn" class="text-center"></td>
 							<td id="GainImpAnOpt" class="text-center"></td>
+                        </tr>
+                        <script>
+                            function updateAnnes() {
+                                var durObjValue = document.getElementById('durObj').value;
+                                document.getElementById('Annees').textContent = durObjValue;
+                            }
+                    
+                            document.addEventListener('DOMContentLoaded', function() {
+                                var durObjInput = document.getElementById('durObj');
+                                durObjInput.addEventListener('input', updateAnnes);
+                            });
+                        </script>
+                        <tr class="bg-info">
+                            <td>Gain d'impôt aprés: <span id="Annees"></span> An</td>
+                            <td class="text-center">0 TND</td>
+                            <td class="text-center">-</td>
+                            <td id="GainImpTotal" class="text-center"></td>
+							<td id="GainImpTotalOpt" class="text-center">-</td>
                         </tr>
                         <tr>
                             <td>Gain d'impôt mensuel </td>
                             <td class="text-center">0 TND</td>
+                            <td id="GainImpMens1An" class="text-center"></td>
                             <td id="GainImpMens" class="text-center"></td>
 							<td id="GainImpMensOpt" class="text-center"></td>
                         </tr>
                         <tr>
                             <td>Gain d'impôt en % </td>
                             <td class="text-center">0 %</td>
+                            <td id="GainImpPA1An" class="text-center"></td>
                             <td id="GainImpPA" class="text-center"></td>
 							<td id="GainImpPAOpt" class="text-center"></td>
 
@@ -878,6 +904,7 @@ background: radial-gradient(circle, rgba(7,48,33,1) 0%, rgba(63,97,77,1) 0%, rgb
                         <tr class="bg-info">
                             <td>Gain d'impôt en % du placement Projet Avenir </td>
                             <td class="text-center">-</td>
+                            <td id="GainImpPla1An" class="text-center"></td>
                             <td id="GainImpPla" class="text-center"></td>
 							<td id="GainImpPlaOpt" class="text-center"></td>
                         </tr>
