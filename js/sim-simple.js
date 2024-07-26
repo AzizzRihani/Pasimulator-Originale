@@ -539,7 +539,7 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
    
     var Dsous = new Date(document.getElementById('inDateSous').value);
    
-   var TypeVer=1;
+   var TypeVer=0;
    if(TypeVer==0)
    {
     VerL=100000;
@@ -1171,7 +1171,8 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
     var CatRev = document.getElementById('catrev1').value;
     var AssVie;
 	var AssVie2=res1;
-    if(res1<100000){
+    if(res1<100000)
+    {
     AssVie = res1;
     }
     else{
@@ -1258,7 +1259,6 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
 
         var Revenu = document.getElementById('inRevenu').value;
         //testt
-        console.log(Revenu);
         if (CatRevenu==1){
             var x = Revenu*0;
         }
@@ -1318,8 +1318,15 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
             outRevenu = 0;
         }
 
-        //testt
-        console.log(outRevenu);
+        /*
+        if(outRevenu<res1)
+        {
+                alert("Pour le versement Programmé la valeur ne doit pas passer le revenu");
+                document.getElementById("table2").style.display = "none";
+                document.getElementById("table").style.display = "none";
+        }
+
+        */
         document.getElementById('RevNetImpo').innerHTML = formatMillier(outRevenu)+' TND';
         document.getElementById('RevNetImpo1An').innerHTML = formatMillier(outRevenu)+' TND';
         
@@ -1474,8 +1481,6 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
             impotduPa = 0;
         }
         }
-        //testt
-        console.log(netImpApPlPA);
 
         // Impot du PA 1 année
         //VP
@@ -1778,22 +1783,22 @@ var mntdeduct =AssVie;
 		
 		if (MtntPa3 >= parseFloat(MtntPaOpt2)*100000)
 		{	
-		
-		document.getElementById('RevNetApPlPa').innerHTML = formatMillier(Math.round((parseFloat(netImpApPlPAopt.toFixed(3)))))+' TND';
-        if(TypeVer==1)
-		document.getElementById('ImpDuPa').innerHTML = formatMillier(Math.round((parseFloat(impotdu.toFixed(3)))*0.45))+' TND';
+		if(outRevenu==res1)
+            document.getElementById('RevNetApPlPa').innerHTML = formatMillier(0)+' TND';
         else
-        document.getElementById('ImpDuPa').innerHTML = formatMillier(Math.round((parseFloat(impotduVl.toFixed(3)))*0.45))+' TND';
+	    document.getElementById('RevNetApPlPa').innerHTML = formatMillier(Math.round((parseFloat(netImpApPlPAopt.toFixed(3)))))+' TND';
+	    document.getElementById('ImpDuPa').innerHTML = formatMillier(Math.round((parseFloat(impotdu.toFixed(3)))*0.45))+' TND';
 		document.getElementById('GainImpAn').innerHTML =formatMillier(Math.round(GainImpotAnOpt))+' TND';
+        document.getElementById('GainImpTotal').innerHTML = formatMillier(Math.round(GainImpotTotalOpt))+' TND';
 		document.getElementById('GainImpMens').innerHTML = formatMillier(Math.round(GainImpotMensOpt))+' TND';
 		document.getElementById('GainImpPA').innerHTML = GainImpotPAOpt+' %';
 		document.getElementById('GainImpPla').innerHTML = GainImpPlaOptS+' %';
-        if(Type==0)
+        if(TypeVer==0)
             document.getElementById('vdeff').innerHTML = formatMillier(VerL)+' TND';
         else
 		document.getElementById('vdeff').innerHTML = formatMillier(MtntPaOpt2)+' TND';
 
-		localStorage.setItem("VersAnnDed",MtntPaOpt2); 
+		localStorage.setItem("VersAnnDed",MtntPaOpt2);
 		document.getElementById('RedAnn').innerHTML = formatMillier(GainImpotAnOpt)+' TND';
 		localStorage.setItem("EcoImp",GainImpotAnOpt);
 		mntdeduct=formatMillier(MtntPaOpt2);
@@ -1801,7 +1806,10 @@ var mntdeduct =AssVie;
         if(TypeVer==0)
         document.getElementById('edi').innerHTML = formatMillier(VerL)+'TND';
         else
-		document.getElementById('edi').innerHTML = formatMillier(localStorage.getItem('VersAnnDed'))+'TND';
+        if(outRevenu==res1)
+            document.getElementById('edi').innerHTML = formatMillier(outRevenu)+'TND';
+        else
+		    document.getElementById('edi').innerHTML = formatMillier(localStorage.getItem('VersAnnDed'))+'TND';
 
         document.getElementById('Annees').innerHTML = Math.round(d);
 		/*if (GainImpotAnOpt>=36000)
@@ -1839,7 +1847,10 @@ var mntdeduct =AssVie;
             if(TypeVer==0)
                 document.getElementById('edi').innerHTML = formatMillier(VerL)+'TND';
             else
-			    document.getElementById('edi').innerHTML = formatMillier(localStorage.getItem('VersAnnDed'))+'TND';
+                if(outRevenu==res1)
+                    document.getElementById('edi').innerHTML = formatMillier(outRevenu)+'TND';
+                else
+			        document.getElementById('edi').innerHTML = formatMillier(localStorage.getItem('VersAnnDed'))+'TND';
 			
 			
 			
@@ -1889,7 +1900,6 @@ var mntdeduct =AssVie;
 		       		
 		
 		document.getElementById('ImpDuPaOpt').innerHTML = formatMillier(Math.round((parseFloat(impotdu.toFixed(3)))*0.45))+' TND';
- 
         if(TypeVer==0)
         {
         document.getElementById('MtntPa').innerHTML = formatMillier(VerL)+' TND';
@@ -1938,7 +1948,7 @@ var mntdeduct =AssVie;
             impotduMAx = 0;
         }
 		document.getElementById('ImpDuPaOpt').innerHTML = formatMillier(impotduMAx)+' TND';
-	
+        console.log('opt');
 		 var GainImpotAnOptMax = impotdu-impotduMAx;
         if(isNaN(GainImpotAnOptMax)){
             GainImpotAnOptMax = 0;
