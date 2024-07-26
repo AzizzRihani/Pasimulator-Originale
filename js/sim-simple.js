@@ -1780,7 +1780,7 @@ var mntdeduct =AssVie;
 		{MtntPa3=parseFloat(MtntPa2)*100 ;}
 		else {MtntPa3=parseFloat(MtntPa2)*100000} ;
 		
-		
+		//optimal
 		if (MtntPa3 >= parseFloat(MtntPaOpt2)*100000)
 		{	
 		if(outRevenu==res1)
@@ -1804,8 +1804,10 @@ var mntdeduct =AssVie;
 		mntdeduct=formatMillier(MtntPaOpt2);
 
         if(TypeVer==0)
-        document.getElementById('edi').innerHTML = formatMillier(VerL)+'TND';
+        if(VerL<=localStorage.getItem('VersAnnDed'))
+            document.getElementById('edi').innerHTML = formatMillier(VerL)+'TND';
         else
+            document.getElementById('edi').innerHTML = formatMillier(localStorage.getItem(MtntPaOpt2))+'TND';
         if(outRevenu==res1)
             document.getElementById('edi').innerHTML = formatMillier(outRevenu)+'TND';
         else
@@ -1845,7 +1847,12 @@ var mntdeduct =AssVie;
 			mntdeduct=formatMillier(res1);
 
             if(TypeVer==0)
-                document.getElementById('edi').innerHTML = formatMillier(VerL)+'TND';
+                if(VerL<=localStorage.getItem('VersAnnDed'))
+                    document.getElementById('edi').innerHTML = formatMillier(VerL)+' TND';
+                else
+                {
+                    document.getElementById('edi').innerHTML = formatMillier(MtntPaOpt2)+' TND';
+                }
             else
                 if(outRevenu==res1)
                     document.getElementById('edi').innerHTML = formatMillier(outRevenu)+'TND';
