@@ -539,10 +539,10 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
    
     var Dsous = new Date(document.getElementById('inDateSous').value);
    
-   var TypeVer=0;
+   var TypeVer=1;
    if(TypeVer==0)
    {
-    VerL=10000;
+    VerL=100000;
     //testt
     var res1 = VerL;
     var res = VerL;
@@ -1425,7 +1425,6 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
 
         // Impot du PA 1 année
         //VP
-        if(TypeVer==1)
             {
                 if(outRevenu<res1An)
                     {
@@ -1454,12 +1453,13 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
                 impotduPa1An = 0;
             }
             }
-            if(impotdu<impotduPa1An)
-            impotduPa1An=Math.round((parseFloat(impotdu.toFixed(3)))*0.45);
+            if(impotdu<=impotduPa1An)
+                impotduPa1An=Math.round((parseFloat(impotdu.toFixed(3)))*0.45);
 
+            console.log(impotdu);
             console.log(impotduPa1An);
 		var ImpDuPaOptS =formatMillier(Math.round(parseFloat(impotdu.toFixed(3))));
-        
+
 		var ImpDuPaOptV ;
 		ImpDuPaOptV=impotdu*0.45;
 		
