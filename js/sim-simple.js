@@ -536,8 +536,28 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
     var D1 = document.getElementById('DurRtC').value;
     var Ech = 1;
    
-   
     var Dsous = new Date(document.getElementById('inDateSous').value);
+
+    console.log(Dsous);
+    console.log(Dsous.getMonth()+1);
+    var Dat = Dsous.getMonth() + 1;
+    switch(v)
+    {
+        case 12:
+            {
+                var Ti = 12 - Dat;
+                break;
+            }
+        case 4:
+            {
+                var Ti = 12 - Dat;
+                break;
+            }
+        case 2:
+            {
+                var Ti = 12 - Dat;
+            }
+    }
    
    var TypeVer=1;
    if(TypeVer==0)
@@ -1456,8 +1476,6 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
             if(impotdu<=impotduPa1An)
                 impotduPa1An=Math.round((parseFloat(impotdu.toFixed(3)))*0.45);
 
-            console.log(impotdu);
-            console.log(impotduPa1An);
 		var ImpDuPaOptS =formatMillier(Math.round(parseFloat(impotdu.toFixed(3))));
 
 		var ImpDuPaOptV ;
