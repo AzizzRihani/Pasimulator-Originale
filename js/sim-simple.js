@@ -538,27 +538,53 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
    
     var Dsous = new Date(document.getElementById('inDateSous').value);
 
-    console.log(Dsous);
     console.log(Dsous.getMonth()+1);
     var Dat = Dsous.getMonth() + 1;
-    switch(v)
+    var DatRes = 12 - Dat;
+    console.log(DatRes,v);
+    var vv = parseInt(v);
+    if(DatRes>0)
+    {
+    switch(vv)
     {
         case 12:
             {
-                var Ti = 12 - Dat;
+                if(DatRes>0)
+                    var NverRes = DatRes;
                 break;
             }
         case 4:
             {
-                var Ti = 12 - Dat;
+                if(Math.trunc(DatRes / 4)==1)
+                    var NverRes = 1;
+                else
+                if(Math.trunc(DatRes / 4)==2)
+                    var NverRes = 2;
+                else
+                    var NverRes = 0;
                 break;
             }
         case 2:
             {
-                var Ti = 12 - Dat;
+                if(Math.trunc(DatRes / 6)==1)
+                    var NverRes = 1;
+                else
+                    var NverRes = 0;
+                break;
+            }
+        default: 
+            {
+                // Handle unexpected cases
+                console.log('Unexpected value:', vv);
             }
     }
-   
+    }
+    else
+        var NverRes = 0;
+
+        console.log(NverRes);
+
+
    var TypeVer=1;
    if(TypeVer==0)
    {
