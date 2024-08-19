@@ -538,10 +538,8 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
    
     var Dsous = new Date(document.getElementById('inDateSous').value);
 
-    console.log(Dsous.getMonth()+1);
     var Dat = Dsous.getMonth() + 1;
     var DatRes = 12 - Dat;
-    console.log(DatRes,v);
     var vv = parseInt(v);
     if(DatRes>0)
     {
@@ -555,10 +553,10 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
             }
         case 4:
             {
-                if(Math.trunc(DatRes / 4)==1)
+                if(Math.trunc(DatRes / 3)==1)
                     var NverRes = 1;
                 else
-                if(Math.trunc(DatRes / 4)==2)
+                if(Math.trunc(DatRes / 3)==2)
                     var NverRes = 2;
                 else
                     var NverRes = 0;
@@ -582,7 +580,6 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
     else
         var NverRes = 0;
 
-        console.log(NverRes);
 
 
    var TypeVer=1;
@@ -599,7 +596,7 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
    {
     var res = v * c * d - (-(f - c));
     var res1 = c * v;
-    var res1An = parseFloat(c*v)+parseFloat(f);
+    var res1An = parseFloat(c*NverRes)+parseFloat(f);
    }
 
    
@@ -1470,7 +1467,6 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
         }
 
         // Impot du PA 1 année
-        //VP
             {
                 if(outRevenu<res1An)
                     {
@@ -1501,6 +1497,8 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
             }
             if(impotdu<=impotduPa1An)
                 impotduPa1An=Math.round((parseFloat(impotdu.toFixed(3)))*0.45);
+            console.log('netImpAp1an',netImpApPlPA1An);
+            console.log('impotdu',impotduPa1An);
 
 		var ImpDuPaOptS =formatMillier(Math.round(parseFloat(impotdu.toFixed(3))));
 
@@ -1738,18 +1736,32 @@ var mntdeduct =AssVie;
             document.getElementById('RevNetApPlPa').innerHTML = formatMillier(0)+' TND';
         else
 	    document.getElementById('RevNetApPlPa').innerHTML = formatMillier(Math.round((parseFloat(netImpApPlPAopt.toFixed(3)))))+' TND';
+
+        if(netImpApPlPA1An<=netImpApPlPAopt)
+        {
         document.getElementById('RevNetApPl1An').innerHTML = formatMillier(Math.round((parseFloat(netImpApPlPAopt.toFixed(3)))))+' TND';
-	    document.getElementById('ImpDuPa').innerHTML = formatMillier(Math.round((parseFloat(impotdu.toFixed(3)))*0.45))+' TND';
         document.getElementById('ImpDu1An').innerHTML = formatMillier(Math.round((parseFloat(impotdu.toFixed(3)))*0.45))+' TND';
-		document.getElementById('GainImpAn').innerHTML =formatMillier(Math.round(GainImpotAnOpt))+' TND';
         document.getElementById('GainImp1An').innerHTML = formatMillier(Math.round(GainImpotAnOpt))+' TND';
+        document.getElementById('GainImpMens1An').innerHTML = formatMillier(Math.round(GainImpotMensOpt))+' TND';
+        document.getElementById('GainImpPA1An').innerHTML = GainImpotPAOpt+' %';
+        document.getElementById('GainImpPla1An').innerHTML = GainImpPlaOptS+' %';
+        }
+        else
+        {
+        document.getElementById('RevNetApPl1An').innerHTML = formatMillier(Math.round((parseFloat(netImpApPlPA1An.toFixed(3)))))+' TND';
+        document.getElementById('ImpDu1An').innerHTML = formatMillier(Math.round((parseFloat(impotduPa1An.toFixed(3)))))+' TND';
+        document.getElementById('GainImp1An').innerHTML = formatMillier(Math.round(GainImpot1An))+' TND';
+        document.getElementById('GainImpMens1An').innerHTML = formatMillier(Math.round(GainImpotMens1An))+' TND';
+        document.getElementById('GainImpPA1An').innerHTML = GainImpotPA1An+' %';
+        document.getElementById('GainImpPla1An').innerHTML = GainImpPla1An+' %';
+        }
+
+	    document.getElementById('ImpDuPa').innerHTML = formatMillier(Math.round((parseFloat(impotdu.toFixed(3)))*0.45))+' TND';
+		document.getElementById('GainImpAn').innerHTML =formatMillier(Math.round(GainImpotAnOpt))+' TND';
         document.getElementById('GainImpTotal').innerHTML = formatMillier(Math.round(GainImpotTotalOpt))+' TND';
 		document.getElementById('GainImpMens').innerHTML = formatMillier(Math.round(GainImpotMensOpt))+' TND';
-        document.getElementById('GainImpMens1An').innerHTML = formatMillier(Math.round(GainImpotMensOpt))+' TND';
 		document.getElementById('GainImpPA').innerHTML = GainImpotPAOpt+' %';
-        document.getElementById('GainImpPA1An').innerHTML = GainImpotPAOpt+' %';
 		document.getElementById('GainImpPla').innerHTML = GainImpPlaOptS+' %';
-        document.getElementById('GainImpPla1An').innerHTML = GainImpPlaOptS+' %';
 		document.getElementById('vdeff').innerHTML = formatMillier(MtntPaOpt2)+' TND';
 
 		localStorage.setItem("VersAnnDed",MtntPaOpt2);
