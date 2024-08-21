@@ -53,6 +53,31 @@ document.getElementById('TypeRT').addEventListener('change',function(){
 
    }
  });
+ /////////////////////////////// TYPE VERSEMENT /////////////////////////////////
+
+ document.getElementById('TypeV').addEventListener('input',function(){
+    var Type = document.getElementById('TypeV').value;
+    if(Type==0){
+        
+        document.getElementById("VerssA").style.display = "inline";
+        document.getElementById("durObjA").style.display = "inline";
+        document.getElementById("inDateSousA").style.display = "inline";
+        document.getElementById("VersInitA").style.display = "none";
+        document.getElementById("freqvA").style.display = "none";
+        document.getElementById("VersProgA").style.display = "none";
+        document.getElementById("Ech1").style.display = "none";
+    }
+    else
+    {
+        document.getElementById("VerssA").style.display = "none";
+        document.getElementById("durObjA").style.display = "inline";
+        document.getElementById("inDateSousA").style.display = "inline";
+        document.getElementById("VersInitA").style.display = "inline";
+        document.getElementById("freqvA").style.display = "inline";
+        document.getElementById("VersProgA").style.display = "inline";
+        document.getElementById("Ech1").style.display = "none";      
+    }
+});
 
 //////////////////////////////// TYPE DE LA RENTE ///////////////////////////////
 document.getElementById('TypeRT').addEventListener('input',function(){
@@ -236,6 +261,7 @@ else if(CatRev==""){
     
 }});
 ///////////////////////// Valeur acquise objectif ///////////////////////////////////////////////
+////////////////////////////////// VP //////////////////////////////////////////////////////////
 function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech){
     D1 = new Date();
     D2 = new Date();
@@ -261,7 +287,7 @@ function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech){
         if(j_sous>=24){
             m_ref = m_ref+1;
         }
-        for(a=a0;a<=an;a++){
+        for(a=a0;a<=an;a++){    
             k0 = 0;
             kn = 12;
             switch(a){
@@ -326,6 +352,107 @@ function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech){
                 j = Math.round((D20.getTime()-D10.getTime())/(1000 * 3600 * 24)); //jour de l'année
                 Vka_n = Vka_n +(Pej*(Math.pow((1+ipnet),(Math.max(0,(njc-(j+15)+1))/nja))));
                 k = k + 12/Freq;
+                
+    
+            }
+            Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
+            
+            
+        }
+        return Vka;
+    }
+////////////////////////////////// VL //////////////////////////////////////////////////////////
+function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
+    D1 = new Date();
+    D2 = new Date();
+    
+    a0 = parseInt(Date0.getFullYear());
+    an = 0;
+    
+     
+     m_ref = Date0.getMonth();
+        //a0 = Date0.getFullYear();
+        var Vka=0 ;
+         
+        var an = a0+Dure;
+         j_sous = Date0.getDate();
+         m_ref = Date0.getMonth()+1;
+         var sa01 = (a0-1).toString();
+         var D111 = new Date("12/31/".concat(sa01));
+         var sa0 = a0.toString();
+         var sm_ref = m_ref.toString();
+         var sj_sous = j_sous.toString();
+         var D222 = new Date(sm_ref.concat("/").concat(sj_sous).concat("/").concat(sa0));
+         j = (D222.getTime()-D111.getTime())/(1000 * 3600 * 24);
+        if(j_sous>=24){
+            m_ref = m_ref+1;
+        }
+        for(a=a0;a<=an;a++)
+            {    
+            k0 = 0;
+            kn = 12;
+            switch(a){
+                case a0:
+                    k0 = m_ref;
+                    break;
+                case an:
+                    switch(Ech){
+                        case 1:
+                            kn = m_ref;
+                            break;
+                            
+                    }
+                    
+            }
+        
+         k = k0 + 12/1;
+        var Vka_n = 0;
+        var njc;
+        var j;
+        var Sa1 = (a-1).toString();
+        var Sa = a.toString();
+        var  dateD1 = new Date("12/31/".concat(Sa1));
+        var  dateD2 = new Date("12/31/".concat(Sa));
+        nja = (dateD2.getTime() - dateD1.getTime())/(1000 * 3600 * 24); //nbr de jour sur l'année
+    
+            switch(kn){
+                 
+                case 12:
+                    njc = nja;
+                    break;
+                
+                default:
+                    var Skn = (kn+1).toString();
+                    var D11 = new Date("01/01/".concat(Sa));
+                    var D22 = new Date(Skn.concat("/01/").concat(Sa));
+                    
+                    njc = Math.round((D22.getTime() - D11.getTime())/(1000 * 3600 * 24)); //nbr de jour période
+                   
+                    break;
+            }
+            if(a==a0){
+                var sa01 = (a0-1).toString();
+                var D111 = new Date("12/31/".concat(sa01));
+                var sa0 = a0.toString();
+                var sm_ref = m_ref.toString();
+                var sj_sous = j_sous.toString();
+                var D222 = new Date(sm_ref.concat("/").concat(sj_sous).concat("/").concat(sa0));
+                j = Math.round((D222.getTime()-D111.getTime())/(1000 * 3600 * 24))+1;
+                
+    
+         
+              Vka_n =Pe0*(Math.pow((1+ipnet),(Math.max(0,(njc-(j+15)+1))/nja)));
+             
+            }
+           
+            while(k<=kn){
+                var Sk = k.toString();
+                var D10 = new Date("12/31/".concat(Sa1));
+                var D20 = new Date(Sk.concat("/1/").concat(Sa));
+    
+                j = Math.round((D20.getTime()-D10.getTime())/(1000 * 3600 * 24)); //jour de l'année
+                Vka_n = Vka_n +(Pe0*(Math.pow((1+ipnet),(Math.max(0,(njc-(j+15)+1))/nja))));
+                k = k + 12/1;
                 
     
             }
@@ -476,42 +603,42 @@ function vv(){
 
     document.getElementById("a1").style.display = "inline";
     document.getElementById("a2").style.display = "inline";
-    if (v==1 && f<300){
+    if ((v==1 && f<300)||VerL<100){
         alert("Pour le versement Annuel la valeur min du versement initial est de 300dt");
         document.getElementById("table2").style.display = "none";
 
     }
-    else if (v==1 && c<300){
+    else if ((v==1 && c<300)||VerL<100){
         alert("Pour le versement Annuel la valeur min du versement programmé est de 300dt");
         document.getElementById("table2").style.display = "none";
 
     }
-    else if (v==2 && f<150){
+    else if ((v==2 && f<150)||VerL<100){
         alert("Pour le versement semestriel la valeur min du versement initial est de 150dt");
         document.getElementById("table2").style.display = "none";
 
     }
-    else if (v==2 && c<150){
+    else if ((v==2 && c<150)||VerL<100){
         alert("Pour le versement semestriel la valeur min du versement programmé est de 150dt");
         document.getElementById("table2").style.display = "none";
 
     }
-    else if (v==4 && f<75){
+    else if ((v==4 && f<75)||VerL<100){
         alert("Pour le versement trimestriel la valeur min du versement initial est de 75dt");
         document.getElementById("table2").style.display = "none";
 
     }
-    else if (v==4 && c<75){
+    else if ((v==4 && c<75)||VerL<100){
         alert("Pour le versement trimestriel la valeur min du versement programmé est de 75dt");
         document.getElementById("table2").style.display = "none";
 
     }
-    else if (v==12 && f<25){
+    else if ((v==12 && f<25)||VerL<100){
         alert("Pour le versement mensuel la valeur min du versement initial est de 25dt");
         document.getElementById("table2").style.display = "none";
 
     }
-    else   if (v==12 && c<25){
+    else   if ((v==12 && c<25)||VerL<100){
         alert("Pour le versement mensuel la valeur min du versement programmé est de 25dt");
         document.getElementById("table2").style.display = "none";
 
@@ -534,6 +661,8 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
     var P = document.getElementById('PerRt').value;
     var D1 = document.getElementById('DurRtC').value;
     var D1 = document.getElementById('DurRtC').value;
+    var TypeVer= document.getElementById('TypeV').value;
+    var VerL = document.getElementById('Verss').value;
     var Ech = 1;
    
     var Dsous = new Date(document.getElementById('inDateSous').value);
@@ -573,6 +702,7 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
         default: 
             {
                 // Handle unexpected cases
+                var NverRes = 0;
                 console.log('Unexpected value:', vv);
             }
     }
@@ -581,11 +711,8 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
         var NverRes = 0;
 
 
-
-   var TypeVer=1;
    if(TypeVer==0)
    {
-    VerL=100000;
     //testt
     var res1 = VerL;
     var res = VerL;
@@ -686,9 +813,18 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
    
    Dsous.setMonth(Dsous.getMonth()+1);
     
+   if(TypeVer==1)
+   {
     var va1 = Calcul_EC(f,c,tx1,Dsous,v,d,Ech);
   
     var va2 = Calcul_EC(f,c,tx2,Dsous,v,d,Ech);
+   }
+   else
+   {
+    var va1 = Calcul_EC_VL(VerL,tx1,Dsous,d,Ech);
+  
+    var va2 = Calcul_EC_VL(VerL,tx2,Dsous,d,Ech);
+   }
     
     
    
@@ -902,14 +1038,23 @@ document.getElementById('RedMax').innerHTML = formatMillier(RedMAX)+' TND';
 document.getElementById('thi').innerHTML = Per+' %';
 localStorage.setItem("TRHIMP",Per);
 
-var maxdedfr = (1000000/v).toFixed(3);
 ////////////////////////////////// C23
 var d1 = document.getElementById('durObj').value;
 var L = d1*12;
-var FV = document.getElementById('freqvers').value;
 
 var C = Array(96);
+if(TypeVer==1)
+{
 C[0]=f;
+var FV = document.getElementById('freqvers').value;
+var maxdedfr = (1000000/v).toFixed(3);
+}
+else
+{
+C[0]=VerL;
+var FV = 1;
+var maxdedfr = (1000000/1).toFixed(3);
+}
 switch(parseInt(FV)) {
     case 12:
         for (i = 1; i < 96; i++){
@@ -938,11 +1083,15 @@ switch(parseInt(FV)) {
       case 1:
         for (i = 1; i < 96; i++){
             if ((i % 12)==0){
+                if(TypeVer==1)
                 C[i]=c; 
+                else
+                C[i]=VerL; 
             }else{
                 C[i]=0;
             }
         }
+        console.log('le',C);
       break;
     default:
       // code block
@@ -1226,48 +1375,55 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
     }
     var Revenu = document.getElementById('inRevenu').value;
     //if((Chef!="")&&(CatRev!="")&&(AssVie<=10000)&&(Revenu!="")){
-        if (v==1 && f<300){
+    if(TypeVer==1)
+    {
+        if ((v==1 && f<300)){
             alert("Pour le versement Annuel la valeur min du versement initial est de 300dt");
             document.getElementById("table").style.display = "none";
 
         }
-        else if (v==1 && c<300){
+        else if ((v==1 && c<300)){
             alert("Pour le versement Annuel la valeur min du versement programmé est de 300dt");
             document.getElementById("table").style.display = "none";
 
         }
-        else if (v==2 && f<150){
+        else if ((v==2 && f<150)){
             alert("Pour le versement semestriel la valeur min du versement initial est de 150dt");
             document.getElementById("table").style.display = "none";
 
         }
-        else if (v==2 && c<150){
+        else if ((v==2 && c<150)){
             alert("Pour le versement semestriel la valeur min du versement programmé est de 150dt");
             document.getElementById("table").style.display = "none";
 
         }
-        else if (v==4 && f<75){
+        else if ((v==4 && f<75)){
             alert("Pour le versement trimestriel la valeur min du versement initial est de 75dt");
             document.getElementById("table").style.display = "none";
 
         }
-        else if (v==4 && c<75){
+        else if ((v==4 && c<75)){
             alert("Pour le versement trimestriel la valeur min du versement programmé est de 75dt");
             document.getElementById("table").style.display = "none";
 
         }
-        else if (v==12 && f<25){
+        else if ((v==12 && f<25)){
             alert("Pour le versement mensuel la valeur min du versement initial est de 25dt");
             document.getElementById("table").style.display = "none";
 
         }
-        else   if (v==12 && c<25){
+        else   if ((v==12 && c<25)){
             alert("Pour le versement mensuel la valeur min du versement programmé est de 25dt");
             document.getElementById("table").style.display = "none";
     
            
         }  
         else{    document.getElementById("table").style.display = "inline";
+    }
+    }
+    else
+    {
+        document.getElementById("table").style.display = "inline";
     }
 
     
@@ -1609,7 +1765,10 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
         }
         
         // Gain d'impot Mensuel 1 ére année
+        if(TypeVer==0)
         var GainImpotMens1An = (GainImpot1An/12).toFixed(3);
+        else
+        var GainImpotMens1An = (GainImpot1An/NverRes).toFixed(3);
         if(isNaN(GainImpotMens1An)){
             GainImpotMens1An = 0;
         }
@@ -1923,7 +2082,7 @@ var mntdeduct =AssVie;
         document.getElementById('GainImpTotalOpt').innerHTML = formatMillier(Math.round(GainImpotTotalOptMax))+' TND';
 
 		}
-		var res22  = formatMillier(Math.round(parseFloat(res1.toFixed(3))));	
+		//var res22  = formatMillier(Math.round(parseFloat(res1.toFixed(3))));	
 		
 		var res24  = res1;
 
