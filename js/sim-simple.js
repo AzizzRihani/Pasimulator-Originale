@@ -369,12 +369,12 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
     a0 = parseInt(Date0.getFullYear());
     an = 0;
     
-     
+
      m_ref = Date0.getMonth();
         //a0 = Date0.getFullYear();
         var Vka=0 ;
          
-        var an = a0+Dure;
+        var an = a0+1;
          j_sous = Date0.getDate();
          m_ref = Date0.getMonth()+1;
          var sa01 = (a0-1).toString();
@@ -406,7 +406,7 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
             }
         
          k = k0 + 12/1;
-        var Vka_n = 0;
+         var Vka_n = 0;
         var njc;
         var j;
         var Sa1 = (a-1).toString();
@@ -458,8 +458,8 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
             }
             Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
             
-            
         }
+        
         return Vka;
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1091,7 +1091,7 @@ switch(parseInt(FV)) {
                 C[i]=0;
             }
         }
-        console.log('le',C);
+        console.log(C);
       break;
     default:
       // code block
@@ -1653,8 +1653,6 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
             }
             if(impotdu<=impotduPa1An)
                 impotduPa1An=Math.round((parseFloat(impotdu.toFixed(3)))*0.45);
-            console.log('netImpAp1an',netImpApPlPA1An);
-            console.log('impotdu',impotduPa1An);
 
 		var ImpDuPaOptS =formatMillier(Math.round(parseFloat(impotdu.toFixed(3))));
 
