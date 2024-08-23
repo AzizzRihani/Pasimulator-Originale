@@ -374,7 +374,7 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
         //a0 = Date0.getFullYear();
         var Vka=0 ;
          
-        var an = a0+1;
+        var an = a0+Dure;
          j_sous = Date0.getDate();
          m_ref = Date0.getMonth()+1;
          var sa01 = (a0-1).toString();
@@ -451,10 +451,9 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
                 var D20 = new Date(Sk.concat("/1/").concat(Sa));
     
                 j = Math.round((D20.getTime()-D10.getTime())/(1000 * 3600 * 24)); //jour de l'année
-                Vka_n = Vka_n +(Pe0*(Math.pow((1+ipnet),(Math.max(0,(njc-(j+15)+1))/nja))));
+                Vka_n = Vka_n +(Pe0*(Math.pow((1+ipnet) ,(Math.max(0,(njc-(j+15)+1))/nja))));
                 k = k + 12/1;
                 
-    
             }
             Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
             
@@ -662,6 +661,8 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
     var D1 = document.getElementById('DurRtC').value;
     var D1 = document.getElementById('DurRtC').value;
     var TypeVer= document.getElementById('TypeV').value;
+    console.log(TypeVer);
+    localStorage.setItem("TypeV",TypeVer);
     var VerL = document.getElementById('Verss').value;
     var Ech = 1;
    
@@ -1733,6 +1734,7 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
 				
 		//document.getElementById('MtntPaOpt').innerHTML = formatMillier(Math.round((parseFloat(outRevenu.toFixed(3))-parseFloat(netImpApPlPAopt.toFixed(3)))))+' TND';
 		document.getElementById('MtntPaOpt').innerHTML = MtntPaOpt2+' TND';
+        localStorage.setItem('VerOp',MtntPaOpt2);
 	
 		var AssVieOPt=outRevenu-netImpApPlPAopt;
 		
@@ -1766,7 +1768,12 @@ document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
         if(TypeVer==0)
         var GainImpotMens1An = (GainImpot1An/12).toFixed(3);
         else
-        var GainImpotMens1An = (GainImpot1An/NverRes).toFixed(3);
+        {
+        if(NverRes==0)
+            var GainImpotMens1An = (GainImpot1An/12).toFixed(3);
+        else
+            var GainImpotMens1An = (GainImpot1An/NverRes).toFixed(3);
+        }
         if(isNaN(GainImpotMens1An)){
             GainImpotMens1An = 0;
         }
@@ -1899,6 +1906,7 @@ var mntdeduct =AssVie;
         document.getElementById('RevNetApPl1An').innerHTML = formatMillier(Math.round((parseFloat(netImpApPlPAopt.toFixed(3)))))+' TND';
         document.getElementById('ImpDu1An').innerHTML = formatMillier(Math.round((parseFloat(impotdu.toFixed(3)))*0.45))+' TND';
         document.getElementById('GainImp1An').innerHTML = formatMillier(Math.round(GainImpotAnOpt))+' TND';
+        localStorage.setItem("GainImpot1An", GainImpotAnOpt); 
         document.getElementById('GainImpMens1An').innerHTML = formatMillier(Math.round(GainImpotMensOpt))+' TND';
         document.getElementById('GainImpPA1An').innerHTML = GainImpotPAOpt+' %';
         document.getElementById('GainImpPla1An').innerHTML = GainImpPlaOptS+' %';
@@ -1908,6 +1916,7 @@ var mntdeduct =AssVie;
         document.getElementById('RevNetApPl1An').innerHTML = formatMillier(Math.round((parseFloat(netImpApPlPA1An.toFixed(3)))))+' TND';
         document.getElementById('ImpDu1An').innerHTML = formatMillier(Math.round((parseFloat(impotduPa1An.toFixed(3)))))+' TND';
         document.getElementById('GainImp1An').innerHTML = formatMillier(Math.round(GainImpot1An))+' TND';
+        localStorage.setItem("GainImpot1An", GainImpot1An); 
         document.getElementById('GainImpMens1An').innerHTML = formatMillier(Math.round(GainImpotMens1An))+' TND';
         document.getElementById('GainImpPA1An').innerHTML = GainImpotPA1An+' %';
         document.getElementById('GainImpPla1An').innerHTML = GainImpPla1An+' %';
@@ -1915,6 +1924,7 @@ var mntdeduct =AssVie;
 
 	    document.getElementById('ImpDuPa').innerHTML = formatMillier(Math.round((parseFloat(impotdu.toFixed(3)))*0.45))+' TND';
 		document.getElementById('GainImpAn').innerHTML =formatMillier(Math.round(GainImpotAnOpt))+' TND';
+        localStorage.setItem('GainImpANDev',Math.round(GainImpotAnOpt));	
         document.getElementById('GainImpTotal').innerHTML = formatMillier(Math.round(GainImpotTotalOpt))+' TND';
 		document.getElementById('GainImpMens').innerHTML = formatMillier(Math.round(GainImpotMensOpt))+' TND';
 		document.getElementById('GainImpPA').innerHTML = GainImpotPAOpt+' %';
@@ -1948,7 +1958,9 @@ var mntdeduct =AssVie;
  		     document.getElementById('ImpDuPa').innerHTML = formatMillier(Math.round(impotduPa))+' TND';
              document.getElementById('ImpDu1An').innerHTML = formatMillier(Math.round(impotduPa1An))+' TND';
 			 document.getElementById('GainImp1An').innerHTML = formatMillier(Math.round(GainImpot1An))+' TND';
+             localStorage.setItem("GainImpot1An", GainImpot1An); 
              document.getElementById('GainImpAn').innerHTML = formatMillier(Math.round(GainImpotAn))+' TND';
+             localStorage.setItem('GainImpANDev',Math.round(GainImpotAn));
              document.getElementById('GainImpTotal').innerHTML = formatMillier(Math.round(GainImpotTotal))+' TND';
              document.getElementById('GainImpMens1An').innerHTML = formatMillier(Math.round(GainImpotMens1An))+' TND';
 			 document.getElementById('GainImpMens').innerHTML = formatMillier(Math.round(GainImpotMens))+' TND';
@@ -2027,11 +2039,13 @@ var mntdeduct =AssVie;
         {
         document.getElementById('MtntPa').innerHTML = formatMillier(VerL)+' TND';
         document.getElementById('MtntPa1An').innerHTML = formatMillier(VerL)+' TND';
+        localStorage.setItem('MtntPaDev',0);
         }
         else
         {
 		document.getElementById('MtntPa').innerHTML = formatMillier(AssVie2)+' TND';
         document.getElementById('MtntPa1An').innerHTML = res1An+' TND';
+        localStorage.setItem('MtntPaDev',AssVie2);
         }
 
 		document.getElementById('MaxDed').innerHTML = formatMillier(MtntPaOpt2)+' TND';
@@ -2137,7 +2151,9 @@ var mntdeduct =AssVie;
 		
 		document.getElementById('ImpDuPa').innerHTML = formatMillier(impotduMAx)+' TND';
 		
-		document.getElementById('GainImpAn').innerHTML = formatMillier(Math.round(GainImpotAnOptMax))+' TND';	
+		document.getElementById('GainImpAn').innerHTML = formatMillier(Math.round(GainImpotAnOptMax))+' TND';
+        
+        localStorage.setItem('GainImpANDev',Math.round(GainImpotAnOptMax));
 
 		 document.getElementById('GainImpMens').innerHTML = formatMillier(Math.round(GainImpotMensOptMax))+' TND';
 		 

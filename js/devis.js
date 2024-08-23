@@ -12,8 +12,8 @@ var d1 = new Date();
 //var d2 = d1.getDate()+"/"+(d1.getMonth()+1)+"/"+d1.getFullYear();
 var d2 = d1.getDate()+'/'+(d1.getMonth()+1)+'/'+d1.getFullYear();
 
-document.getElementById('date').innerHTML = d2;
-document.getElementById('date').innerHTML = d2;
+//document.getElementById('date').innerHTML = d2;
+//document.getElementById('date').innerHTML = d2;
 
 	
 
@@ -43,8 +43,21 @@ document.getElementById('vmad').innerHTML = formatMillier(localStorage.getItem('
 
 document.getElementById('veri').innerHTML = formatMillier(localStorage.getItem('VersInit'))+' TND';
 document.getElementById('verp').innerHTML = formatMillier(localStorage.getItem('VersProg'))+' TND';
-document.getElementById('per').innerHTML = localStorage.getItem('freqvers');
+document.getElementById('GainIm1An').innerHTML = formatMillier(localStorage.getItem('GainImpot1An'))+' TND';
 document.getElementById('dobj').innerHTML = localStorage.getItem('durObj')+' Ans';
+document.getElementById('VerProgAn').innerHTML = formatMillier(localStorage.getItem('MtntPaDev'))+' TND';
+document.getElementById('GainImPA').innerHTML = formatMillier(localStorage.getItem('GainImpANDev'))+' TND';
+document.getElementById('VerOpAn').innerHTML = formatMillier(localStorage.getItem('VerOp'))+' TND';
+if(localStorage.getItem('TypeV')==0)
+{
+document.getElementById('TypeVer').innerHTML = 'Versement libre';
+document.getElementById('per').innerHTML = '\u2205';
+}
+else
+{
+document.getElementById('TypeVer').innerHTML = 'Versement programmé';
+document.getElementById('per').innerHTML = localStorage.getItem('freqvers');
+}
 document.getElementById('aobj').innerHTML = localStorage.getItem('ageObjectif')+' Ans';
 document.getElementById('tvpdo').innerHTML = formatMillier(localStorage.getItem('SomVer'))+' TND';
 document.getElementById('nasrc').innerHTML = localStorage.getItem('DurRtC')+ ' Ans';
