@@ -60,6 +60,7 @@ document.getElementById('per').innerHTML = localStorage.getItem('freqvers');
 }
 document.getElementById('aobj').innerHTML = localStorage.getItem('ageObjectif')+' Ans';
 document.getElementById('tvpdo').innerHTML = formatMillier(localStorage.getItem('SomVer'))+' TND';
+document.getElementById('tvpdo1').innerHTML = formatMillier(localStorage.getItem('SomVer'))+' TND';
 document.getElementById('nasrc').innerHTML = localStorage.getItem('DurRtC')+ ' Ans';
 var va100 = parseFloat(localStorage.getItem('va1'));
 var va200 = parseFloat(localStorage.getItem('va2'));

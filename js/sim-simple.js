@@ -405,7 +405,7 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
                     
             }
         
-         k = k0 + 12/1;
+         k = k0 + 12;
          var Vka_n = 0;
         var njc;
         var j;
@@ -451,12 +451,11 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
                 var D20 = new Date(Sk.concat("/1/").concat(Sa));
     
                 j = Math.round((D20.getTime()-D10.getTime())/(1000 * 3600 * 24)); //jour de l'année
-                Vka_n = Vka_n +(Pe0*(Math.pow((1+ipnet) ,(Math.max(0,(njc-(j+15)+1))/nja))));
-                k = k + 12/1;
-                
+                Vka_n = Vka_n +(1*(Math.pow((1+ipnet) ,(Math.max(0,(njc-(j+15)+1))/nja))));
+                k = k + 12;
             }
             Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
-            
+            console.log('hedhi',Vka)
         }
         
         return Vka;
@@ -651,6 +650,7 @@ function vv(){
 var sommeee = localStorage.getItem('SomVer');
 document.getElementById('SOMME1').innerHTML = formatMillier(parseFloat(sommeee))+' TND';
 document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))+' TND';
+console.log(sommeee,'hedhi sommeVer 1');
 
 
     var f = document.getElementById('VersInit').value;
@@ -665,7 +665,7 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
     localStorage.setItem("TypeV",TypeVer);
     var VerL = document.getElementById('Verss').value;
     var Ech = 1;
-   
+
     var Dsous = new Date(document.getElementById('inDateSous').value);
 
     var Dat = Dsous.getMonth() + 1;
@@ -832,6 +832,8 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
     var sommeee = localStorage.getItem('SomVer');
 document.getElementById('SOMME1').innerHTML = formatMillier(parseFloat(sommeee))+' TND';
 document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))+' TND';
+console.log(sommeee,'hedhi sommeVer 2');
+
 
     document.getElementById('ValAcqObj').innerHTML = formatMillier(parseFloat(va1.toFixed(3)))+' TND';
 
