@@ -170,51 +170,64 @@ p {
 			</div>
 		</div>
 		<br>
-		<table class="border border-secondary">
+		<style>
+			.table-border-secondary {
+  border: 1px solid #6c757d; /* Bootstrap's secondary color (#6c757d) */
+  border-collapse: collapse; /* Ensures borders are not doubled */
+}
+
+.table-border-secondary th, 
+.table-border-secondary td {
+  border: 1px solid #6c757d; /* Apply the same border color to cells */
+  padding: 8px; /* Optional: adds padding for better readability */
+}
+
+		</style>
+		<table class="table-border-secondary">
 			<tr>
 				<th></th>
 				<th id="HypRev1"></th>
 				<th id="HypRev2"></th>
 			</tr>
 			<tr>
-				<td><strong>Total des versements</strong></td>
+				<th><strong>Total des versements</strong></th>
 				<td id="tvpdo"></td>
 				<td id="tvpdo1"></td>
 			</tr>
 			<tr>
-				<td><strong>Epargne constituée</strong></td>
+				<th><strong>Epargne constituée</strong></th>
 				<td id="vatdo1"></td>
 				<td id="vatdo2"></td>
 			</tr>
 			<tr>
-				<td><strong>Gain Total</strong></td>
+				<th><strong>Gain Total</strong></th>
+				<td id="GainTot1"></td>
+				<td id="GainTot2"></td>
+			</tr>
+			<tr>
+				<th><strong>Gain financier </strong></th>
+				<td id="GainF1"></td>
+				<td id="GainF2"></td>
+			</tr>
+			<tr>
+				<th><strong>Gain fiscal</strong></th>
+				<td id="GainFiscal1"></td>
+				<td id="GainFiscal2"></td>
+			</tr>
+			<tr>
+				<th><strong>Rente viagère / certaine</strong></th>
+				<td id="Rt1"></td>
+				<td id="Rt2"></td>
+			</tr>
+			<tr>
+				<th><strong>Taux de rendement </strong></th>
+				<td id="TRDM11"></td>
+				<td id="TRDM22"></td>
+			</tr>
+			<tr>
+				<th><strong>Retour sur investissement </strong></th>
 				<td></td>
 				<td></td>
-			</tr>
-			<tr>
-				<td><strong>Gain financier </strong></td>
-				<td>Row 4, Col 2</td>
-				<td>Row 4, Col 3</td>
-			</tr>
-			<tr>
-				<td><strong>Gain fiscal</strong></td>
-				<td>Row 5, Col 2</td>
-				<td>Row 5, Col 3</td>
-			</tr>
-			<tr>
-				<td><strong>Rente viagère / certaine</strong></td>
-				<td>Row 6, Col 2</td>
-				<td>Row 6, Col 3</td>
-			</tr>
-			<tr>
-				<td><strong>Taux de rendement </strong></td>
-				<td>Row 7, Col 2</td>
-				<td>Row 7, Col 3</td>
-			</tr>
-			<tr>
-				<td><strong>Retour sur investissement </strong></td>
-				<td>Row 8, Col 2</td>
-				<td>Row 8, Col 3</td>
 			</tr>
 		</table>
 
@@ -233,7 +246,24 @@ p {
 
 		<br><br><br><br><br>
 
+		<h2 style="text-align: center;"><strong>Tableau de capitalisation</strong></h2>
+		<br><br>
+		<table class="table-border-secondary">
+		<tr>
+			<th>Date de l'échéance</th>
+			<th>Versement de l'année</th>
+			<th>Cumul des versements</th>
+			<th>Epargne constituée</th>
+			<th>Economie d'impot annuelle</th>
+			<th>Cumul économie d'impots</th>
+		</tr>
+		<tr>
 
+		</tr>
+		<tr>
+
+		</tr>
+		</table>
 		<div class="border border-secondary">
 			
 			<div class="row">
@@ -349,8 +379,13 @@ p {
 			<div class="col-6"></div>
 			<div class="col-6 text-center"><!--les montants sont exprimés en dinars--></div>
 		</div>
+
+		
 		<br>
-		<strong>*Les valeurs sont fournies à titre indicatif et ne constituent en aucun cas un engagement contractuel</strong><br>
+		<strong>*Les valeurs sont fournies à titre indicatif sur la base d’un taux prévisionnel de X% (taux servi 2023) et
+		ne constituent en aucun cas un engagement contractuel.
+		</strong>
+		<br>
 		<strong>** Taux de rendement net en tenant compte de l'avantage fiscal</strong><br>
 		<strong>NB : En cas de rachat avant 8 ans une régularisation fiscale sera exigée et une retenue à la source de 20% sera appliquée sur les rendements financiers réalisés</strong>
 		<br>

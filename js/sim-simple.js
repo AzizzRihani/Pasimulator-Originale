@@ -726,7 +726,7 @@ console.log(sommeee,'hedhi sommeVer 1');
     var res1 = c * v;
     var res1An = parseFloat(c*NverRes)+parseFloat(f);
    }
-
+   localStorage.setItem('TypeVr',TypeVer);
    
 
 
@@ -941,6 +941,9 @@ if(isNaN(rt1,rt2,rtSt1,rtSt2,RTREV1,RTREV2)){
      
     document.getElementById('RtCt').innerHTML = '0 TND';
     document.getElementById('RtCt1').innerHTML = '0 TND';
+    localStorage.setItem('RtCt',0);
+    localStorage.setItem('RtCt1',0);
+
 }
 
 var Type = document.getElementById('TypeRT').value;
@@ -960,6 +963,8 @@ localStorage.setItem('TypeRT',Type);
 
     document.getElementById('RtCt').innerHTML = formatMillier(rt1.toFixed(3))+' TND';
     document.getElementById('RtCt1').innerHTML = formatMillier(rt2.toFixed(3))+' TND';
+    localStorage.setItem("RenteCert2",rt2);
+    localStorage.setItem("RenteCert1",rt1);
     }
      else if(Type==2){
         
@@ -976,10 +981,10 @@ localStorage.setItem('TypeRT',Type);
 
         localStorage.setItem('RenteReversible1','');
         localStorage.setItem('RenteReversible2','');
-         document.getElementById('RtCt').innerHTML = formatMillier(rtSt1.toFixed(3))+' TND';
-   // localStorage.setItem("RenteCert1",rt1);
+        document.getElementById('RtCt').innerHTML = formatMillier(rtSt1.toFixed(3))+' TND';
         document.getElementById('RtCt1').innerHTML = formatMillier(rtSt2.toFixed(3))+' TND';
-    //localStorage.setItem("RenteCert2",rt2);
+        localStorage.setItem("RenteCert2",rt2);
+        localStorage.setItem("RenteCert1",rt1);
     }
     else if(Type==3){
         var RTREV1 = Rente_reversible(gen, ageObjectif, geny, ageObjectif2, TxTech,frais,P, TxR, va1);
@@ -994,9 +999,9 @@ localStorage.setItem('TypeRT',Type);
         localStorage.setItem('RenteSurTete2','');
 
         document.getElementById('RtCt').innerHTML = formatMillier(RTREV1.toFixed(3))+' TND';
-        //localStorage.setItem("RenteCert1",rt1);
         document.getElementById('RtCt1').innerHTML = formatMillier(RTREV2.toFixed(3))+' TND';
-        //localStorage.setItem("RenteCert2",rt2);
+        localStorage.setItem("RenteCert2",rt2);
+        localStorage.setItem("RenteCert1",rt1);
         }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1101,6 +1106,7 @@ switch(parseInt(FV)) {
   }
 
 //////////////////////////////////////////
+localStorage.setItem('Type',document.getElementById('TypeRT').value);
 ///////////////////////////////////// D23
 var SommeD = 0;
 var D = Array(96);
@@ -1355,6 +1361,8 @@ if(isNaN(Rdmt2)){
 
 document.getElementById('TRDM1').innerHTML = Rdmt1+' %';
 document.getElementById('TRDM2').innerHTML = Rdmt2+' %';
+localStorage.setItem('TRDM1',Rdmt1);
+localStorage.setItem('TRDM2',Rdmt2);
 /// les rendements    
 
 

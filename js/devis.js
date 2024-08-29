@@ -62,10 +62,61 @@ document.getElementById('aobj').innerHTML = localStorage.getItem('ageObjectif')+
 document.getElementById('tvpdo').innerHTML = formatMillier(localStorage.getItem('SomVer'))+' TND';
 document.getElementById('tvpdo1').innerHTML = formatMillier(localStorage.getItem('SomVer'))+' TND';
 document.getElementById('nasrc').innerHTML = localStorage.getItem('DurRtC')+ ' Ans';
+
 var va100 = parseFloat(localStorage.getItem('va1'));
 var va200 = parseFloat(localStorage.getItem('va2'));
+
+var sommeVer = localStorage.getItem('SomVer');
+var GainFin1 = va100 - sommeVer;
+var GainFin2 = va200 - sommeVer;
+
 document.getElementById('vatdo1').innerHTML = formatMillier(va100.toFixed(3))+ ' TND';
 document.getElementById('vatdo2').innerHTML = formatMillier(va200.toFixed(3))+ ' TND';
+
+document.getElementById('GainF1').innerHTML = formatMillier(GainFin1.toFixed(3))+ ' TND';
+document.getElementById('GainF2').innerHTML = formatMillier(GainFin2.toFixed(3))+ ' TND';
+
+var GainImp1ereAn = localStorage.getItem('GainImpot1An');
+var GainImp = localStorage.getItem('GainImpANDev');
+var Dur = localStorage.getItem('durObj');
+
+var float = parseFloat(GainImp1ereAn);
+var TypeVer = localStorage.getItem('TypeVr');
+if(TypeVer==1)
+var GainImpTot = float+(GainImp*(Dur-1));
+else
+var GainImpTot = float;
+
+var GainTot1 = GainImpTot+GainFin1;
+var GainTot2 = GainImpTot+GainFin2;
+
+
+document.getElementById('GainFiscal1').innerHTML = formatMillier(GainImpTot)+ ' TND';
+document.getElementById('GainFiscal2').innerHTML = formatMillier(GainImpTot)+ ' TND';
+
+document.getElementById('GainTot1').innerHTML = formatMillier(GainTot1.toFixed(3))+ ' TND';
+document.getElementById('GainTot2').innerHTML = formatMillier(GainTot2.toFixed(3))+ ' TND';
+
+document.getElementById('TRDM11').innerHTML = localStorage.getItem('TRDM1')+ ' %';
+document.getElementById('TRDM22').innerHTML = localStorage.getItem('TRDM2')+ ' %';
+
+console.log(parseInt(localStorage.getItem('Type')));
+if(localStorage.getItem('Type')==0)
+{
+var RentCer1 = 0;
+var RentCer2 = 0;
+console.log(RentCer1);
+document.getElementById('Rt1').innerHTML = '-';
+document.getElementById('Rt2').innerHTML = '-';
+}
+else
+{
+var RentCer1 = parseFloat(localStorage.getItem('RenteCert1'));
+var RentCer2 = parseFloat(localStorage.getItem('RenteCert2'));
+document.getElementById('Rt1').innerHTML = formatMillier(RentCer1.toFixed(3))+ ' TND';
+document.getElementById('Rt2').innerHTML = formatMillier(RentCer2.toFixed(3))+ ' TND';
+}
+
 
 document.getElementById('HypRev1').innerHTML = localStorage.getItem('HypRev1')+ ' %';
 document.getElementById('HypRev2').innerHTML = localStorage.getItem('HypRev2')+ ' %';
