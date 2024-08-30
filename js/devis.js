@@ -61,6 +61,8 @@ document.getElementById('per').innerHTML = localStorage.getItem('freqvers');
 document.getElementById('aobj').innerHTML = localStorage.getItem('ageObjectif')+' Ans';
 document.getElementById('tvpdo').innerHTML = formatMillier(localStorage.getItem('SomVer'))+' TND';
 document.getElementById('tvpdo1').innerHTML = formatMillier(localStorage.getItem('SomVer'))+' TND';
+
+var VersTot = parseFloat(localStorage.getItem('SomVer'));
 document.getElementById('nasrc').innerHTML = localStorage.getItem('DurRtC')+ ' Ans';
 
 var va100 = parseFloat(localStorage.getItem('va1'));
@@ -69,6 +71,7 @@ var va200 = parseFloat(localStorage.getItem('va2'));
 var sommeVer = localStorage.getItem('SomVer');
 var GainFin1 = va100 - sommeVer;
 var GainFin2 = va200 - sommeVer;
+
 
 document.getElementById('vatdo1').innerHTML = formatMillier(va100.toFixed(3))+ ' TND';
 document.getElementById('vatdo2').innerHTML = formatMillier(va200.toFixed(3))+ ' TND';
@@ -90,6 +93,11 @@ var GainImpTot = float;
 var GainTot1 = GainImpTot+GainFin1;
 var GainTot2 = GainImpTot+GainFin2;
 
+var RetSurInv1 = ((GainTot1 +  VersTot)/VersTot)*100;
+var RetSurInv2 = ((GainTot2 +  VersTot)/VersTot)*100;
+
+document.getElementById('RetourSurInv1').innerHTML = Math.round(RetSurInv1)+ ' %';
+document.getElementById('RetourSurInv2').innerHTML = Math.round(RetSurInv2)+ ' %';
 
 document.getElementById('GainFiscal1').innerHTML = formatMillier(GainImpTot)+ ' TND';
 document.getElementById('GainFiscal2').innerHTML = formatMillier(GainImpTot)+ ' TND';

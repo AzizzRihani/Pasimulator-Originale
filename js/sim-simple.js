@@ -455,7 +455,6 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
                 k = k + 12;
             }
             Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
-            console.log('hedhi',Vka)
         }
         
         return Vka;
@@ -650,7 +649,6 @@ function vv(){
 var sommeee = localStorage.getItem('SomVer');
 document.getElementById('SOMME1').innerHTML = formatMillier(parseFloat(sommeee))+' TND';
 document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))+' TND';
-console.log(sommeee,'hedhi sommeVer 1');
 
 
     var f = document.getElementById('VersInit').value;
@@ -661,7 +659,6 @@ console.log(sommeee,'hedhi sommeVer 1');
     var D1 = document.getElementById('DurRtC').value;
     var D1 = document.getElementById('DurRtC').value;
     var TypeVer= document.getElementById('TypeV').value;
-    console.log(TypeVer);
     localStorage.setItem("TypeV",TypeVer);
     var VerL = document.getElementById('Verss').value;
     var Ech = 1;
@@ -704,7 +701,6 @@ console.log(sommeee,'hedhi sommeVer 1');
             {
                 // Handle unexpected cases
                 var NverRes = 0;
-                console.log('Unexpected value:', vv);
             }
     }
     }
@@ -718,7 +714,6 @@ console.log(sommeee,'hedhi sommeVer 1');
     var res1 = VerL;
     var res = VerL;
     var res1An = VerL;
-    console.log("Versement libre");
    }
    else if(TypeVer==1)
    {
@@ -832,9 +827,8 @@ console.log(sommeee,'hedhi sommeVer 1');
     var sommeee = localStorage.getItem('SomVer');
 document.getElementById('SOMME1').innerHTML = formatMillier(parseFloat(sommeee))+' TND';
 document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))+' TND';
-console.log(sommeee,'hedhi sommeVer 2');
 
-
+    console.log(va1,'hedhi ya khra');
     document.getElementById('ValAcqObj').innerHTML = formatMillier(parseFloat(va1.toFixed(3)))+' TND';
 
     va11=va1;
@@ -1099,7 +1093,6 @@ switch(parseInt(FV)) {
                 C[i]=0;
             }
         }
-        console.log(C);
       break;
     default:
       // code block
