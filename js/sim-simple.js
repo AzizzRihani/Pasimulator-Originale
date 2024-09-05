@@ -660,6 +660,7 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
     var D1 = document.getElementById('DurRtC').value;
     var TypeVer= document.getElementById('TypeV').value;
     localStorage.setItem("TypeV",TypeVer);
+    localStorage.setItem("Dur",d);
     var VerL = document.getElementById('Verss').value;
     var Ech = 1;
 
