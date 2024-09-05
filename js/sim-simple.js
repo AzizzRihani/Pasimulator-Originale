@@ -829,7 +829,6 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
 document.getElementById('SOMME1').innerHTML = formatMillier(parseFloat(sommeee))+' TND';
 document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))+' TND';
 
-    console.log(va1,'hedhi ya khra');
     document.getElementById('ValAcqObj').innerHTML = formatMillier(parseFloat(va1.toFixed(3)))+' TND';
 
     va11=va1;

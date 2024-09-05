@@ -18,31 +18,19 @@ var d2 = d1.getDate()+'/'+(d1.getMonth()+1)+'/'+d1.getFullYear();
 	
 
 //document.getElementById('cde-ag').innerHTML = localStorage.getItem('codeAg');
-document.getElementById('n-ag').innerHTML = localStorage.getItem('agence');
 
-document.getElementById('n-as').innerHTML = localStorage.getItem('Name');
 var d3 = new Date(localStorage.getItem('DateNaissance'));
 var d4 = d3.getDate()+'/'+(d3.getMonth()+1)+'/'+d3.getFullYear();
 
-document.getElementById('date-as').innerHTML = d4;
 document.getElementById('age-as').innerHTML = localStorage.getItem('age')+' Ans';
 
 
-if (isNaN(parseInt(localStorage.getItem('inRevenu'))))
-{document.getElementById('tdr').innerHTML ='0 TND';}
-else {document.getElementById('tdr').innerHTML = formatMillier(localStorage.getItem('inRevenu'))+' TND';}
 
 //document.getElementById('thi').innerHTML = localStorage.getItem('TRHIMP')+' %';
-document.getElementById('vad').innerHTML = formatMillier(localStorage.getItem('VersAnnDed'))+' TND';
 
 
-if (isNaN(parseInt(localStorage.getItem('EcoImp'))))
-{document.getElementById('edi').innerHTML = '0 TND';}
-else {document.getElementById('edi').innerHTML = formatMillier(localStorage.getItem('EcoImp'))+' TND';}
-document.getElementById('vmad').innerHTML = formatMillier(localStorage.getItem('VersMaxAnn'))+' TND';
 
-document.getElementById('veri').innerHTML = formatMillier(localStorage.getItem('VersInit'))+' TND';
-document.getElementById('verp').innerHTML = formatMillier(localStorage.getItem('VersProg'))+' TND';
+
 document.getElementById('GainIm1An').innerHTML = formatMillier(localStorage.getItem('GainImpot1An'))+' TND';
 document.getElementById('dobj').innerHTML = localStorage.getItem('durObj')+' Ans';
 document.getElementById('VerProgAn').innerHTML = formatMillier(localStorage.getItem('MtntPaDev'))+' TND';
@@ -63,7 +51,6 @@ document.getElementById('tvpdo').innerHTML = formatMillier(localStorage.getItem(
 document.getElementById('tvpdo1').innerHTML = formatMillier(localStorage.getItem('SomVer'))+' TND';
 
 var VersTot = parseFloat(localStorage.getItem('SomVer'));
-document.getElementById('nasrc').innerHTML = localStorage.getItem('DurRtC')+ ' Ans';
 
 var va100 = parseFloat(localStorage.getItem('va1'));
 var va200 = parseFloat(localStorage.getItem('va2'));
@@ -145,8 +132,6 @@ else if(parseInt(localStorage.getItem('CategorieDeRevenu'))!=0){
     document.getElementById('grafc2').style.display = "flex" ;
 }
 if((localStorage.getItem('TypeRT')==0)||(localStorage.getItem('TypeRT')==6)){
-    document.getElementById('nbrAnRtCt').style.display = "none" ;
-    document.getElementById('nbrAnRtCt1').style.display = "none" ;
     document.getElementById('RentType').style.display = "none" ;
     document.getElementById('remc1').style.display = "none" ;
     document.getElementById('remc2').style.display = "none" ;
