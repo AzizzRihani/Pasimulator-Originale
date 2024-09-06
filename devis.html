@@ -248,7 +248,7 @@ p {
 
 		<h2 style="text-align: center;"><strong>Tableau de capitalisation</strong></h2>
 		<br><br>
-		<table class="table-border-secondary">
+		<table id="Capi" class="table-border-secondary">
 		<tr style="background-color: #a8a8a8;padding-left: 0;">
 			<th>Date de l'échéance</th>
 			<th>Versement de l'année</th>
@@ -257,19 +257,50 @@ p {
 			<th>Economie d'impot annuelle</th>
 			<th>Cumul économie d'impots</th>
 		</tr>
-		<tr>
-			
-		</tr>
-		<tr>
-
-		</tr>
 		</table>
-		<br><br>
-		<br><br>
+
+		<script>
+			// Variable x controls the number of rows to be displayed
+			let x = localStorage.getItem('durObj'); // Change this value to control the number of rows
+			var y = parseInt(localStorage.getItem('Year')) - 1;
+			// Function to generate rows
+			function generateRows(x) {
+				const table = document.getElementById("Capi");
+	
+				// Loop to add rows
+				for (let i = 0; i <= x; i++) {
+					const row = document.createElement("tr");
+	
+					// Create 6 empty cells in each row
+					for (let j = 0; j < 6; j++) {
+						const cell = document.createElement("td");
+						if (j === 0) {
+							y = y + 1;
+                    		cell.textContent = y; // Date de l'échéance
+                		} else if (j === 1) {
+                    	cell.textContent = 'b'; // Versement de l'année
+                		} else if (j === 2) {
+                    	cell.textContent = 'c'; // Cumul des versements
+                		} else if (j === 3) {
+                   		cell.textContent = 'd'; // Epargne constituée
+                		} else if (j === 4) {
+                    	cell.textContent = 'e'; // Economie d'impot annuelle
+                		} else if (j === 5) {
+                    	cell.textContent = 'f'; // Cumul économie d'impots
+                		}	
+						// Optional: Add any content you want
+						row.appendChild(cell);
+					}
+	
+					table.appendChild(row);
+				}
+			}
+	
+			// Call the function to generate rows
+			generateRows(x);
+		</script>
 		<br><br>
 
-		<br>
-		<br>
 		<div>
 			<div class="row" style="background-color: #a8a8a8;padding-left: 0;">
 				<div class="col-6  border border-secondary"><strong>Hypothése revalorisation*</strong></div>

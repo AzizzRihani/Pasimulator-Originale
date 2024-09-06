@@ -665,7 +665,7 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
     var Ech = 1;
 
     var Dsous = new Date(document.getElementById('inDateSous').value);
-
+    localStorage.setItem("Year",Dsous.getFullYear());
     var Dat = Dsous.getMonth() + 1;
     var DatRes = 12 - Dat;
     var vv = parseInt(v);
