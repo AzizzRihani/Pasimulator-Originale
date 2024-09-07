@@ -30,7 +30,7 @@ document.getElementById('age-as').innerHTML = localStorage.getItem('age')+' Ans'
 
 
 
-
+document.getElementById('n-as').innerHTML = formatMillier(localStorage.getItem('Name'));
 document.getElementById('GainIm1An').innerHTML = formatMillier(localStorage.getItem('GainImpot1An'))+' TND';
 document.getElementById('dobj').innerHTML = localStorage.getItem('durObj')+' Ans';
 document.getElementById('VerProgAn').innerHTML = formatMillier(localStorage.getItem('MtntPaDev'))+' TND';
@@ -95,12 +95,10 @@ document.getElementById('GainTot2').innerHTML = formatMillier(GainTot2.toFixed(3
 document.getElementById('TRDM11').innerHTML = localStorage.getItem('TRDM1')+ ' %';
 document.getElementById('TRDM22').innerHTML = localStorage.getItem('TRDM2')+ ' %';
 
-console.log(parseInt(localStorage.getItem('Type')));
 if(localStorage.getItem('Type')==0)
 {
 var RentCer1 = 0;
 var RentCer2 = 0;
-console.log(RentCer1);
 document.getElementById('Rt1').innerHTML = '-';
 document.getElementById('Rt2').innerHTML = '-';
 }
@@ -121,6 +119,114 @@ document.getElementById('grafc2').innerHTML = formatMillier(localStorage.getItem
 
 document.getElementById('txr1').innerHTML = parseFloat((localStorage.getItem('TAUX1'))).toFixed(2)+ ' %';
 document.getElementById('txr2').innerHTML = parseFloat((localStorage.getItem('TAUX2'))).toFixed(2)+ ' %';
+
+///////////////////////////////////////////////////TABLE/////////////////////////////////////////////////
+
+var x = localStorage.getItem('durObj'); // Change this value to control the number of rows
+var y = parseInt(localStorage.getItem('Year')) - 1;
+var CumulVer = parseFloat(localStorage.getItem('res1an'));
+var EchFinale = parseFloat(localStorage.getItem('MtntPaDev')) - (parseFloat(localStorage.getItem('res1an'))-parseFloat(localStorage.getItem('VersInit')-parseFloat(localStorage.getItem('VersProg'))));
+console.log(localStorage.getItem('res1an'));
+console.log(localStorage.getItem('VersInit'));
+console.log(EchFinale);
+// Function to generate rows
+function generateRows(x) {
+    const table = document.getElementById("Capi");
+
+    for (let i = 0; i <= x; i++) {
+        const row = document.createElement("tr");
+
+        for (let j = 0; j < 6; j++) {
+            const cell = document.createElement("td");
+            if (j === 0) {
+                y = y + 1;
+                cell.textContent = y; // Date de l'échéance
+            } else if (j === 1) {
+                if(TypeVer==0)
+                {
+                    if(i==0)
+                    cell.textContent = formatMillier(localStorage.getItem('SomVer'));
+                    else
+                    cell.textContent = 0;
+                }
+                else
+                {
+                    if(i==0)
+                        cell.textContent = formatMillier(localStorage.getItem('res1an'));
+                    else
+                    if(i==x)
+                    {
+                        cell.textContent = formatMillier(EchFinale);
+                    }
+                    else
+                        cell.textContent = formatMillier(localStorage.getItem('MtntPaDev'));
+                }
+            }
+            else if (j === 2) // Versement de l'année
+            {
+                if(TypeVer==0)
+                    {
+                        cell.textContent = formatMillier(localStorage.getItem('SomVer'));
+                    }
+                    else
+                    {
+                        if(i==0)
+                            cell.textContent = formatMillier(localStorage.getItem('res1an'));
+                        else if(i==x)
+                        {
+                            {
+                            CumulVer = CumulVer + EchFinale ;
+                            cell.textContent = formatMillier(CumulVer);
+                            }
+                        }
+                        else
+                        {
+                            CumulVer = CumulVer + parseFloat(localStorage.getItem('MtntPaDev'));
+                            cell.textContent = formatMillier(CumulVer);
+                        }
+                    }
+            }
+            else if (j === 3) // Epargne constituée
+            {
+               cell.textContent = formatMillier(parseFloat(localStorage.getItem('EpConst')).toFixed(3)); 
+            }
+            else if (j === 4) // Economie d'impot annuelle
+            {
+                if(TypeVer==0)
+                    {
+                        if(i==0)
+                        cell.textContent = formatMillier(localStorage.getItem('SomVer'));
+                        else
+                        cell.textContent = 0;
+                    }
+                    else
+                    {
+                        if(i==0)
+                            cell.textContent = formatMillier(localStorage.getItem('res1an'));
+                        else
+                        if(i==x)
+                        {
+                            cell.textContent = formatMillier(EchFinale);
+                        }
+                        else
+                            cell.textContent = formatMillier(localStorage.getItem('MtntPaDev'));
+                    } 
+            } else if (j === 5)
+            {
+            cell.textContent = 'f'; // Cumul économie d'impots
+            }	
+            // Optional: Add any content you want
+            row.appendChild(cell);
+        }
+
+        table.appendChild(row);
+    }
+}
+
+// Call the function to generate rows
+generateRows(x);
+
+//////////////////////////////////////////////END TABLE ////////////////////////////////////////////
 if(parseInt(localStorage.getItem('CategorieDeRevenu'))==0){
     document.getElementById('Gain').style.display = "none" ;
     document.getElementById('grafc1').style.display = "none" ;

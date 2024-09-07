@@ -356,7 +356,7 @@ function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech){
     
             }
             Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
-            
+            console.log(Vka);            
             
         }
         return Vka;
@@ -455,8 +455,8 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
                 k = k + 12;
             }
             Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
+            console.log(Vka);            
         }
-        
         return Vka;
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2048,6 +2048,7 @@ var mntdeduct =AssVie;
         {
 		document.getElementById('MtntPa').innerHTML = formatMillier(AssVie2)+' TND';
         document.getElementById('MtntPa1An').innerHTML = res1An+' TND';
+        localStorage.setItem('res1an',res1An);
         localStorage.setItem('MtntPaDev',AssVie2);
         }
 

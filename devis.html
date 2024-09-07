@@ -259,46 +259,6 @@ p {
 		</tr>
 		</table>
 
-		<script>
-			// Variable x controls the number of rows to be displayed
-			let x = localStorage.getItem('durObj'); // Change this value to control the number of rows
-			var y = parseInt(localStorage.getItem('Year')) - 1;
-			// Function to generate rows
-			function generateRows(x) {
-				const table = document.getElementById("Capi");
-	
-				// Loop to add rows
-				for (let i = 0; i <= x; i++) {
-					const row = document.createElement("tr");
-	
-					// Create 6 empty cells in each row
-					for (let j = 0; j < 6; j++) {
-						const cell = document.createElement("td");
-						if (j === 0) {
-							y = y + 1;
-                    		cell.textContent = y; // Date de l'échéance
-                		} else if (j === 1) {
-                    	cell.textContent = 'b'; // Versement de l'année
-                		} else if (j === 2) {
-                    	cell.textContent = 'c'; // Cumul des versements
-                		} else if (j === 3) {
-                   		cell.textContent = 'd'; // Epargne constituée
-                		} else if (j === 4) {
-                    	cell.textContent = 'e'; // Economie d'impot annuelle
-                		} else if (j === 5) {
-                    	cell.textContent = 'f'; // Cumul économie d'impots
-                		}	
-						// Optional: Add any content you want
-						row.appendChild(cell);
-					}
-	
-					table.appendChild(row);
-				}
-			}
-	
-			// Call the function to generate rows
-			generateRows(x);
-		</script>
 		<br><br>
 
 		<div>
