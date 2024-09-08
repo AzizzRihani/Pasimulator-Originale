@@ -722,6 +722,9 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
     var res1 = c * v;
     var res1An = parseFloat(c*NverRes)+parseFloat(f);
    }
+
+   var MntVer = parseFloat(c*NverRes);
+   localStorage.setItem("MntVer",MntVer);
    localStorage.setItem('TypeVr',TypeVer);
    
 
@@ -1570,6 +1573,8 @@ localStorage.setItem('TRDM2',Rdmt2);
         if((isNaN(netImpApPlPA)) ||(netImpApPlPA<0) ){
             netImpApPlPA = 0;
         }
+
+        localStorage.setItem("OutRev",outRevenu);
 		
             if(TypeVer==0)
 			document.getElementById('vdeff').innerHTML = formatMillier(VerL);
@@ -1582,7 +1587,6 @@ localStorage.setItem('TRDM2',Rdmt2);
 
 
         // Impot du sans PA
-        // VP
 
         if (outRevenu>=0 && outRevenu<5000){
             var impotdu = (outRevenu-0)*0+0;
@@ -1604,6 +1608,7 @@ localStorage.setItem('TRDM2',Rdmt2);
         }
         document.getElementById('ImpDu').innerHTML = formatMillier(parseFloat(impotdu.toFixed(3)))+' TND';
 
+        localStorage.setItem("ImpDu",impotdu);
 
         // Impot du PA
         if (netImpApPlPA>=0 && netImpApPlPA<5000){
@@ -1884,6 +1889,8 @@ localStorage.setItem('TRDM2',Rdmt2);
             localStorage.setItem("EcoImp1An",GainImpotAnOpt);
         else
             localStorage.setItem("EcoImp1An",GainImpot1An);
+
+        localStorage.setItem("EcoImpOpt",GainImpotAnOpt);
 
 
 

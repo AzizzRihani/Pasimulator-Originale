@@ -126,9 +126,33 @@ var x = localStorage.getItem('durObj'); // Change this value to control the numb
 var y = parseInt(localStorage.getItem('Year')) - 1;
 var CumulVer = parseFloat(localStorage.getItem('res1an'));
 var EchFinale = parseFloat(localStorage.getItem('MtntPaDev')) - (parseFloat(localStorage.getItem('res1an'))-parseFloat(localStorage.getItem('VersInit')-parseFloat(localStorage.getItem('VersProg'))));
-console.log(localStorage.getItem('res1an'));
-console.log(localStorage.getItem('VersInit'));
-console.log(EchFinale);
+/////////////////////////////////////////////CALCUL IMPOT///////////////////////////////////////////////
+var MntVer = localStorage.getItem('MntVer');
+var outRevenu = localStorage.getItem('OutRev');
+var NetImpAprPla = outRevenu-EchFinale;
+var ImpotDu = parseFloat(localStorage.getItem("ImpDu"));
+if (NetImpAprPla>=0 && NetImpAprPla<5000){
+    var impotduPa = (NetImpAprPla-0)*0+0;
+}
+else if (NetImpAprPla>=5000 && NetImpAprPla<20000){
+    var impotduPa = (NetImpAprPla-5000)*0.26+0;
+}
+else if (NetImpAprPla>=20000 && NetImpAprPla<30000){
+    var impotduPa = (NetImpAprPla-20000)*0.28+3900;
+}
+else if (NetImpAprPla>=30000 && NetImpAprPla<50000){
+    var impotduPa = (NetImpAprPla-30000)*0.32+6700;
+}
+else if (NetImpAprPla>=50000)
+{
+    var impotduPa = (NetImpAprPla-50000)*0.35+13100;
+}
+if(isNaN(impotduPa)){
+    impotduPa = 0;
+}
+var GainImpFinale = ImpotDu - impotduPa;
+if(GainImpFinale>=parseFloat(localStorage.getItem('EcoImpAn')))
+    GainImpFinale = parseFloat(localStorage.getItem('EcoImpAn'));
 // Function to generate rows
 function generateRows(x) {
     const table = document.getElementById("Capi");
@@ -206,14 +230,16 @@ function generateRows(x) {
                         else
                         if(i==x)
                         {
-                            cell.textContent = formatMillier(EchFinale);
+                            cell.textContent = formatMillier(GainImpFinale);
                         }
                         else
                             cell.textContent = formatMillier(localStorage.getItem('EcoImpAn'));
                     } 
-            } else if (j === 5)
+            } else if (j === 5) // Cumul économie d'impots
             {
-            cell.textContent = 'f'; // Cumul économie d'impots
+
+                
+
             }	
             // Optional: Add any content you want
             row.appendChild(cell);
