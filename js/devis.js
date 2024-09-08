@@ -195,21 +195,21 @@ function generateRows(x) {
                 if(TypeVer==0)
                     {
                         if(i==0)
-                        cell.textContent = formatMillier(localStorage.getItem('SomVer'));
+                        cell.textContent = formatMillier(Math.round(localStorage.getItem("EcoImpAn")));
                         else
                         cell.textContent = 0;
                     }
                     else
                     {
                         if(i==0)
-                            cell.textContent = formatMillier(localStorage.getItem('res1an'));
+                            cell.textContent = formatMillier(localStorage.getItem('EcoImp1An'));
                         else
                         if(i==x)
                         {
                             cell.textContent = formatMillier(EchFinale);
                         }
                         else
-                            cell.textContent = formatMillier(localStorage.getItem('MtntPaDev'));
+                            cell.textContent = formatMillier(localStorage.getItem('EcoImpAn'));
                     } 
             } else if (j === 5)
             {

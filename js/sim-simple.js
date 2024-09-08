@@ -1842,6 +1842,7 @@ localStorage.setItem('TRDM2',Rdmt2);
         if(isNaN(GainImpotAnOpt)){
             GainImpotAnOpt = 0;
         }
+        
 		
         document.getElementById('GainImpAnOpt').innerHTML = formatMillier(Math.round(GainImpotAnOpt))+' TND';
 		
@@ -1874,7 +1875,18 @@ localStorage.setItem('TRDM2',Rdmt2);
             GainImpPlaOptS = 0;
         }
 		
-		
+		if(GainImpotAnOpt<=GainImpotAn)
+            localStorage.setItem("EcoImpAn",GainImpotAnOpt);
+        else
+            localStorage.setItem("EcoImpAn",GainImpotAn);
+
+        if(GainImpotAnOpt<=GainImpot1An)
+            localStorage.setItem("EcoImp1An",GainImpotAnOpt);
+        else
+            localStorage.setItem("EcoImp1An",GainImpot1An);
+
+
+
 var mntdeduct =AssVie;
 		
 		
