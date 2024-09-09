@@ -114,17 +114,12 @@ document.getElementById('Rt2').innerHTML = formatMillier(RentCer2.toFixed(3))+ '
 document.getElementById('HypRev1').innerHTML = localStorage.getItem('HypRev1')+ ' %';
 document.getElementById('HypRev2').innerHTML = localStorage.getItem('HypRev2')+ ' %';
 
-document.getElementById('grafc1').innerHTML = formatMillier(localStorage.getItem('GainReal1'))+ ' TND';
-document.getElementById('grafc2').innerHTML = formatMillier(localStorage.getItem('GainReal2'))+ ' TND';
-
-document.getElementById('txr1').innerHTML = parseFloat((localStorage.getItem('TAUX1'))).toFixed(2)+ ' %';
-document.getElementById('txr2').innerHTML = parseFloat((localStorage.getItem('TAUX2'))).toFixed(2)+ ' %';
-
 ///////////////////////////////////////////////////TABLE/////////////////////////////////////////////////
 
 var x = localStorage.getItem('durObj'); // Change this value to control the number of rows
 var y = parseInt(localStorage.getItem('Year')) - 1;
 var CumulVer = parseFloat(localStorage.getItem('res1an'));
+var CumulImp = parseFloat(localStorage.getItem('EcoImp1An'));
 var EchFinale = parseFloat(localStorage.getItem('MtntPaDev')) - (parseFloat(localStorage.getItem('res1an'))-parseFloat(localStorage.getItem('VersInit')-parseFloat(localStorage.getItem('VersProg'))));
 /////////////////////////////////////////////CALCUL IMPOT///////////////////////////////////////////////
 var MntVer = localStorage.getItem('MntVer');
@@ -238,10 +233,30 @@ function generateRows(x) {
             } else if (j === 5) // Cumul économie d'impots
             {
 
-                
-
+                if(TypeVer==0)
+                    {
+                        if(i==0)
+                        cell.textContent = formatMillier(Math.round(localStorage.getItem("EcoImpAn")));
+                        else
+                        cell.textContent = 0;
+                    }
+                    else
+                    {
+                        if(i==0)
+                            cell.textContent = formatMillier(localStorage.getItem('EcoImp1An'));
+                        else
+                        if(i==x)
+                        {
+                            CumulImp = CumulImp + GainImpFinale ;
+                            cell.textContent = formatMillier(CumulImp);
+                        }
+                        else
+                        {
+                            CumulImp = CumulImp + parseFloat(localStorage.getItem('EcoImpAn'));
+                            cell.textContent = formatMillier(CumulImp);
+                        }
+                    }
             }	
-            // Optional: Add any content you want
             row.appendChild(cell);
         }
 
@@ -275,27 +290,17 @@ if(localStorage.getItem('TypeRT')==1){
     document.getElementById('nbrAnRtCt1').style.display = "flex" ;
 
     
-    document.getElementById('remc1').innerHTML = formatMillier((parseFloat(localStorage.getItem('RenteCertaine1'))).toFixed(3))+' TND' ;
-    document.getElementById('remc2').innerHTML = formatMillier((parseFloat(localStorage.getItem('RenteCertaine2'))).toFixed(3))+' TND' ;
 
 
 }
 else if(localStorage.getItem('TypeRT')==3){
-    document.getElementById('RentType').innerHTML = "Rente viagère Reversible" ;
     document.getElementById('nbrAnRtCt').style.display = "none" ;
     document.getElementById('nbrAnRtCt1').style.display = "none" ;
-    document.getElementById('remc1').innerHTML = formatMillier((parseFloat(localStorage.getItem('RenteReversible1'))).toFixed(3))+' TND' ;
-    document.getElementById('remc2').innerHTML = formatMillier((parseFloat(localStorage.getItem('RenteReversible2'))).toFixed(3))+' TND' ;
-
 
 }
 else if(localStorage.getItem('TypeRT')==2){
     document.getElementById('nbrAnRtCt').style.display = "none" ;
     document.getElementById('nbrAnRtCt1').style.display = "none" ;
-    document.getElementById('RentType').innerHTML = "Rente viagère sur une tete" ;
-    document.getElementById('remc1').innerHTML = formatMillier((parseFloat(localStorage.getItem('RenteSurTete1'))).toFixed(3))+' TND' ;
-    document.getElementById('remc2').innerHTML = formatMillier((parseFloat(localStorage.getItem('RenteSurTete2'))).toFixed(3))+' TND' ;
-
 
 }
 
