@@ -825,7 +825,14 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
   
     var va2 = Calcul_EC_VL(VerL,tx2,Dsous,d,Ech);
    }
-    
+   localStorage.setItem("VerI",f);
+   localStorage.setItem("VerP",c);
+   localStorage.setItem("VerL",VerL);
+   localStorage.setItem("tx",tx1);
+   localStorage.setItem("Dsous",Dsous);
+   localStorage.setItem("d",d);
+   localStorage.setItem("Ech",Ech);
+
     
    
     var sommeee = localStorage.getItem('SomVer');

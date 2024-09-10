@@ -148,6 +148,204 @@ if(isNaN(impotduPa)){
 var GainImpFinale = ImpotDu - impotduPa;
 if(GainImpFinale>=parseFloat(localStorage.getItem('EcoImpAn')))
     GainImpFinale = parseFloat(localStorage.getItem('EcoImpAn'));
+// Function Epargne Const
+//VP
+function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech){
+    D1 = new Date();
+    D2 = new Date();
+    
+    a0 = parseInt(Date0.getFullYear());
+    an = 0;
+    
+     
+     m_ref = Date0.getMonth();
+        //a0 = Date0.getFullYear();
+        var Vka=0 ;
+         
+        var an = a0+Dure;
+         j_sous = Date0.getDate();
+         m_ref = Date0.getMonth()+1;
+         var sa01 = (a0-1).toString();
+         var D111 = new Date("12/31/".concat(sa01));
+         var sa0 = a0.toString();
+         var sm_ref = m_ref.toString();
+         var sj_sous = j_sous.toString();
+         var D222 = new Date(sm_ref.concat("/").concat(sj_sous).concat("/").concat(sa0));
+         j = (D222.getTime()-D111.getTime())/(1000 * 3600 * 24);
+        if(j_sous>=24){
+            m_ref = m_ref+1;
+        }
+        for(a=a0;a<=an;a++){    
+            k0 = 0;
+            kn = 12;
+            switch(a){
+                case a0:
+                    k0 = m_ref;
+                    break;
+                case an:
+                    switch(Ech){
+                        case 1:
+                            kn = m_ref;
+                            break;
+                            
+                    }
+                    
+            }
+        
+         k = k0 + 12/Freq;
+        var Vka_n = 0;
+        var njc;
+        var j;
+        var Sa1 = (a-1).toString();
+        var Sa = a.toString();
+        var  dateD1 = new Date("12/31/".concat(Sa1));
+        var  dateD2 = new Date("12/31/".concat(Sa));
+        nja = (dateD2.getTime() - dateD1.getTime())/(1000 * 3600 * 24); //nbr de jour sur l'année
+    
+            switch(kn){
+                 
+                case 12:
+                    njc = nja;
+                    break;
+                
+                default:
+                    var Skn = (kn+1).toString();
+                    var D11 = new Date("01/01/".concat(Sa));
+                    var D22 = new Date(Skn.concat("/01/").concat(Sa));
+                    
+                    njc = Math.round((D22.getTime() - D11.getTime())/(1000 * 3600 * 24)); //nbr de jour période
+                   
+                    break;
+            }
+            if(a==a0){
+                var sa01 = (a0-1).toString();
+                var D111 = new Date("12/31/".concat(sa01));
+                var sa0 = a0.toString();
+                var sm_ref = m_ref.toString();
+                var sj_sous = j_sous.toString();
+                var D222 = new Date(sm_ref.concat("/").concat(sj_sous).concat("/").concat(sa0));
+                j = Math.round((D222.getTime()-D111.getTime())/(1000 * 3600 * 24))+1;
+                
+    
+         
+              Vka_n =Pe0*(Math.pow((1+ipnet),(Math.max(0,(njc-(j+15)+1))/nja)));
+             
+            }
+           
+            while(k<=kn){
+                var Sk = k.toString();
+                var D10 = new Date("12/31/".concat(Sa1));
+                var D20 = new Date(Sk.concat("/1/").concat(Sa));
+    
+                j = Math.round((D20.getTime()-D10.getTime())/(1000 * 3600 * 24)); //jour de l'année
+                Vka_n = Vka_n +(Pej*(Math.pow((1+ipnet),(Math.max(0,(njc-(j+15)+1))/nja))));
+                k = k + 12/Freq;
+                
+    
+            }
+            Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
+            localStorage.setItem("Vka",Vka);         
+        }
+        return Vka;
+    }
+//VL
+function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
+    D1 = new Date();
+    D2 = new Date();
+
+    a0 = parseInt(Date0.getFullYear());
+    an = 0;
+    
+
+     m_ref = Date0.getMonth();
+        //a0 = Date0.getFullYear();
+        var Vka=0 ;
+         
+        var an = a0+Dure;
+         j_sous = Date0.getDate();
+         m_ref = Date0.getMonth()+1;
+         var sa01 = (a0-1).toString();
+         var D111 = new Date("12/31/".concat(sa01));
+         var sa0 = a0.toString();
+         var sm_ref = m_ref.toString();
+         var sj_sous = j_sous.toString();
+         var D222 = new Date(sm_ref.concat("/").concat(sj_sous).concat("/").concat(sa0));
+         j = (D222.getTime()-D111.getTime())/(1000 * 3600 * 24);
+        if(j_sous>=24){
+            m_ref = m_ref+1;
+        }
+        for(a=a0;a<=an;a++)
+            {    
+            k0 = 0;
+            kn = 12;
+            switch(a){
+                case a0:
+                    k0 = m_ref;
+                    break;
+                case an:
+                    switch(Ech){
+                        case 1:
+                            kn = m_ref;
+                            break;
+                            
+                    }
+                    
+            }
+        
+         k = k0 + 12;
+         var Vka_n = 0;
+        var njc;
+        var j;
+        var Sa1 = (a-1).toString();
+        var Sa = a.toString();
+        var  dateD1 = new Date("12/31/".concat(Sa1));
+        var  dateD2 = new Date("12/31/".concat(Sa));
+        nja = (dateD2.getTime() - dateD1.getTime())/(1000 * 3600 * 24); //nbr de jour sur l'année
+    
+            switch(kn){
+                 
+                case 12:
+                    njc = nja;
+                    break;
+                
+                default:
+                    var Skn = (kn+1).toString();
+                    var D11 = new Date("01/01/".concat(Sa));
+                    var D22 = new Date(Skn.concat("/01/").concat(Sa));
+                    
+                    njc = Math.round((D22.getTime() - D11.getTime())/(1000 * 3600 * 24)); //nbr de jour période
+                   
+                    break;
+            }
+            if(a==a0){
+                var sa01 = (a0-1).toString();
+                var D111 = new Date("12/31/".concat(sa01));
+                var sa0 = a0.toString();
+                var sm_ref = m_ref.toString();
+                var sj_sous = j_sous.toString();
+                var D222 = new Date(sm_ref.concat("/").concat(sj_sous).concat("/").concat(sa0));
+                j = Math.round((D222.getTime()-D111.getTime())/(1000 * 3600 * 24))+1;
+                
+    
+         
+              Vka_n =Pe0*(Math.pow((1+ipnet),(Math.max(0,(njc-(j+15)+1))/nja)));
+             
+            }
+           
+            while(k<=kn){
+                var Sk = k.toString();
+                var D10 = new Date("12/31/".concat(Sa1));
+                var D20 = new Date(Sk.concat("/1/").concat(Sa));
+    
+                j = Math.round((D20.getTime()-D10.getTime())/(1000 * 3600 * 24)); //jour de l'année
+                Vka_n = Vka_n +(1*(Math.pow((1+ipnet) ,(Math.max(0,(njc-(j+15)+1))/nja))));
+                k = k + 12;
+            }
+            Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
+            localStorage.setItem("VkaL",Vka);
+        }
+        return Vka;
+    }
 // Function to generate rows
 function generateRows(x) {
     const table = document.getElementById("Capi");
@@ -207,7 +405,19 @@ function generateRows(x) {
             }
             else if (j === 3) // Epargne constituée
             {
-               cell.textContent = formatMillier(parseFloat(localStorage.getItem('EpConst')).toFixed(3)); 
+            
+                if(TypeVer==0)
+                {
+                    var va = Calcul_EC_VL();
+                    if(i==x)
+                        cell.textContent = formatMillier();
+                    else 
+                        cell.textContent = formatMillier(parseFloat(localStorage.getItem('VkaL')).toFixed(3));
+                }
+                else
+                {
+
+                }
             }
             else if (j === 4) // Economie d'impot annuelle
             {
