@@ -355,7 +355,6 @@ function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech){
     
             }
             Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
-            console.log(Vka);            
             
         }
         return Vka;
@@ -454,7 +453,6 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
                 k = k + 12;
             }
             Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
-            console.log(Vka);            
         }
         return Vka;
     }
@@ -827,7 +825,7 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
    localStorage.setItem("VerI",f);
    localStorage.setItem("VerP",c);
    localStorage.setItem("VerL",VerL);
-   localStorage.setItem("tx",tx1);
+   localStorage.setItem("tx",tx2);
    localStorage.setItem("Dsous",Dsous);
    localStorage.setItem("d",d);
    localStorage.setItem("Ech",Ech);

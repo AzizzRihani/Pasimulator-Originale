@@ -162,10 +162,9 @@ if(GainImpFinale>=parseFloat(localStorage.getItem('EcoImpAn')))
     GainImpFinale = parseFloat(localStorage.getItem('EcoImpAn'));
 // Function Epargne Const
 //VP
-function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech){
+function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech,P){
     D1 = new Date();
     D2 = new Date();
-    
     a0 = parseInt(Date0.getFullYear());
     an = 0;
     
@@ -256,12 +255,13 @@ function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech){
     
             }
             Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
-            localStorage.setItem("Vka",Vka);         
+            console.log(Vka);            
+            
         }
         return Vka;
     }
 //VL
-function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
+function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech,P){
 
     D1 = new Date();
     D2 = new Date();
@@ -273,7 +273,7 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
      m_ref = Date0.getMonth();
         //a0 = Date0.getFullYear();
         var Vka=0 ;
-         
+        var count=0;
         var an = a0+Dure;
          j_sous = Date0.getDate();
          m_ref = Date0.getMonth()+1;
@@ -356,7 +356,13 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
             }
             Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
 
-
+            
+            if(count==P)
+            {
+                return Vka;
+            }
+            count ++;
+        /*
         // Retrieve existing Vka array from localStorage or initialize an empty array if it doesn't exist
         var VkaArray = localStorage.getItem("VkaL");
 
@@ -377,7 +383,7 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
 
         // Store the updated array back in localStorage
         localStorage.setItem("VkaL", JSON.stringify(VkaArray));
-
+        */
 
         }
         return Vka;
@@ -385,7 +391,7 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
 // Function to generate rows
 function generateRows(x) {
     const table = document.getElementById("Capi");
-
+    var u=0;
     for (let i = 0; i <= x; i++) {
         const row = document.createElement("tr");
 
@@ -441,25 +447,26 @@ function generateRows(x) {
             }
             else if (j === 3) // Epargne constituée
             {
-            
                 if(TypeVer==0)
                 {
-                    var va = Calcul_EC_VL(VerL,txt1,Dsous,Duro,Ech);
+                    var va = Calcul_EC_VL(VerL,txt1,Dsous,Duro,Ech,i);
                     if(i==x)
                         cell.textContent = formatMillier(va.toFixed(3));
                     else 
                     {
-                        var VkaArray = JSON.parse(localStorage.getItem("VkaL"));
-                        console.log(VkaArray);
+                        cell.textContent = formatMillier(va.toFixed(3));
                     }
                 }
                 else
                 {
-                    var va = Calcul_EC(VerI,VerP,txt1,Dsous,v,Duro,Ech);
+                    console.log("PG");
+                    var vap = Calcul_EC(VerI,VerP,txt1,Dsous,v,Duro,Ech,i);
                     if(i==x)
-                        cell.textContent = formatMillier(va.toFixed(3));
+                        cell.textContent = formatMillier(vap.toFixed(3));
                     else 
-                        cell.textContent = formatMillier(parseFloat(localStorage.getItem('Vka')).toFixed(3));
+                    {
+                        cell.textContent = formatMillier(vap.toFixed(3));  
+                    }            
                 }
             }
             else if (j === 4) // Economie d'impot annuelle
@@ -524,9 +531,9 @@ if(parseInt(localStorage.getItem('CategorieDeRevenu'))==0){
     document.getElementById('grafc2').style.display = "none" ;
 }
 else if(parseInt(localStorage.getItem('CategorieDeRevenu'))!=0){
-    document.getElementById('Gain').style.display = "flex" ;
-    document.getElementById('grafc1').style.display = "flex" ;
-    document.getElementById('grafc2').style.display = "flex" ;
+    document.getElementById('Gain').style.display = "none" ;
+    document.getElementById('grafc1').style.display = "none" ;
+    document.getElementById('grafc2').style.display = "none" ;
 }
 if((localStorage.getItem('TypeRT')==0)||(localStorage.getItem('TypeRT')==6)){
     document.getElementById('RentType').style.display = "none" ;
