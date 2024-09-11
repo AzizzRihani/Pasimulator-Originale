@@ -265,7 +265,6 @@ else if(CatRev==""){
 function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech){
     D1 = new Date();
     D2 = new Date();
-    
     a0 = parseInt(Date0.getFullYear());
     an = 0;
     
@@ -365,7 +364,7 @@ function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech){
 function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
     D1 = new Date();
     D2 = new Date();
-    
+     
     a0 = parseInt(Date0.getFullYear());
     an = 0;
     
@@ -657,7 +656,6 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
     var v = document.getElementById('freqvers').value;
     var P = document.getElementById('PerRt').value;
     var D1 = document.getElementById('DurRtC').value;
-    var D1 = document.getElementById('DurRtC').value;
     var TypeVer= document.getElementById('TypeV').value;
     localStorage.setItem("TypeV",TypeVer);
     localStorage.setItem("Dur",d);
@@ -812,6 +810,7 @@ document.getElementById('SOMME2').innerHTML = formatMillier(parseFloat(sommeee))
     
    
    Dsous.setMonth(Dsous.getMonth()+1);
+
     
    if(TypeVer==1)
    {

@@ -113,10 +113,22 @@ document.getElementById('Rt2').innerHTML = formatMillier(RentCer2.toFixed(3))+ '
 
 document.getElementById('HypRev1').innerHTML = localStorage.getItem('HypRev1')+ ' %';
 document.getElementById('HypRev2').innerHTML = localStorage.getItem('HypRev2')+ ' %';
+///////////////////////////////////////////////////Calcul Ehéances////////////////////////////////////////
+
+var VerI = parseFloat(localStorage.getItem("VerI"));
+var VerP = parseFloat(localStorage.getItem("VerP"));
+var VerL = parseFloat(localStorage.getItem("VerL"));
+var txt1 = parseFloat(localStorage.getItem("tx"));
+var NvDate = localStorage.getItem("Dsous");
+var Dsous = new Date(NvDate);
+var Duro = parseInt(localStorage.getItem("d"));
+var Ech = parseInt(localStorage.getItem("Ech"));
+var v = parseInt(localStorage.getItem("freqvers"));
+
 
 ///////////////////////////////////////////////////TABLE/////////////////////////////////////////////////
 
-var x = localStorage.getItem('durObj'); // Change this value to control the number of rows
+var x = localStorage.getItem('durObj'); 
 var y = parseInt(localStorage.getItem('Year')) - 1;
 var CumulVer = parseFloat(localStorage.getItem('res1an'));
 var CumulImp = parseFloat(localStorage.getItem('EcoImp1An'));
@@ -250,6 +262,7 @@ function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech){
     }
 //VL
 function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
+
     D1 = new Date();
     D2 = new Date();
 
@@ -342,7 +355,30 @@ function Calcul_EC_VL(Pe0,ipnet,Date0,Dure,Ech){
                 k = k + 12;
             }
             Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
-            localStorage.setItem("VkaL",Vka);
+
+
+        // Retrieve existing Vka array from localStorage or initialize an empty array if it doesn't exist
+        var VkaArray = localStorage.getItem("VkaL");
+
+        // Make sure that VkaArray is an array, even if localStorage is empty
+        if (VkaArray) {
+            VkaArray = JSON.parse(VkaArray);
+        } else {
+            VkaArray = [];
+        }
+
+        // Ensure VkaArray is an array before pushing
+        if (!Array.isArray(VkaArray)) {
+            VkaArray = [];
+        }
+
+        // Append the new Vka value to the array
+        VkaArray.push(Vka);
+
+        // Store the updated array back in localStorage
+        localStorage.setItem("VkaL", JSON.stringify(VkaArray));
+
+
         }
         return Vka;
     }
@@ -408,15 +444,22 @@ function generateRows(x) {
             
                 if(TypeVer==0)
                 {
-                    var va = Calcul_EC_VL();
+                    var va = Calcul_EC_VL(VerL,txt1,Dsous,Duro,Ech);
                     if(i==x)
-                        cell.textContent = formatMillier();
+                        cell.textContent = formatMillier(va.toFixed(3));
                     else 
-                        cell.textContent = formatMillier(parseFloat(localStorage.getItem('VkaL')).toFixed(3));
+                    {
+                        var VkaArray = JSON.parse(localStorage.getItem("VkaL"));
+                        console.log(VkaArray);
+                    }
                 }
                 else
                 {
-
+                    var va = Calcul_EC(VerI,VerP,txt1,Dsous,v,Duro,Ech);
+                    if(i==x)
+                        cell.textContent = formatMillier(va.toFixed(3));
+                    else 
+                        cell.textContent = formatMillier(parseFloat(localStorage.getItem('Vka')).toFixed(3));
                 }
             }
             else if (j === 4) // Economie d'impot annuelle
@@ -445,10 +488,7 @@ function generateRows(x) {
 
                 if(TypeVer==0)
                     {
-                        if(i==0)
                         cell.textContent = formatMillier(Math.round(localStorage.getItem("EcoImpAn")));
-                        else
-                        cell.textContent = 0;
                     }
                     else
                     {
