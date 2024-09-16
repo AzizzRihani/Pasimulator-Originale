@@ -588,7 +588,7 @@ function vv(){
     }
   
     localStorage.setItem("freqvers", Freq);
-
+    localStorage.setItem("freqverss", v);
     var P = document.getElementById('PerRt').value;
     
     var D1 = document.getElementById('DurRtC').value;

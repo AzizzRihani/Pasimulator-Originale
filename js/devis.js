@@ -36,6 +36,7 @@ document.getElementById('dobj').innerHTML = localStorage.getItem('durObj')+' Ans
 document.getElementById('VerProgAn').innerHTML = formatMillier(localStorage.getItem('MtntPaDev'))+' TND';
 document.getElementById('GainImPA').innerHTML = formatMillier(localStorage.getItem('GainImpANDev'))+' TND';
 document.getElementById('VerOpAn').innerHTML = formatMillier(localStorage.getItem('VerOp'))+' TND';
+document.getElementById('TauxP').innerHTML = localStorage.getItem('HypRev2');
 if(localStorage.getItem('TypeV')==0)
 {
 document.getElementById('TypeVer').innerHTML = 'Versement libre';
@@ -123,7 +124,7 @@ var NvDate = localStorage.getItem("Dsous");
 var Dsous = new Date(NvDate);
 var Duro = parseInt(localStorage.getItem("d"));
 var Ech = parseInt(localStorage.getItem("Ech"));
-var v = parseInt(localStorage.getItem("freqvers"));
+var v = parseInt(localStorage.getItem("freqverss"));
 
 
 ///////////////////////////////////////////////////TABLE/////////////////////////////////////////////////
@@ -168,11 +169,12 @@ function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech,P){
     a0 = parseInt(Date0.getFullYear());
     an = 0;
     
-     
+
+
      m_ref = Date0.getMonth();
         //a0 = Date0.getFullYear();
         var Vka=0 ;
-         
+        var count=0;
         var an = a0+Dure;
          j_sous = Date0.getDate();
          m_ref = Date0.getMonth()+1;
@@ -255,8 +257,13 @@ function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech,P){
     
             }
             Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
-            console.log(Vka);            
-            
+
+
+            if(count==P)
+                {
+                    return Vka;
+                }
+                count ++;
         }
         return Vka;
     }
@@ -459,7 +466,6 @@ function generateRows(x) {
                 }
                 else
                 {
-                    console.log("PG");
                     var vap = Calcul_EC(VerI,VerP,txt1,Dsous,v,Duro,Ech,i);
                     if(i==x)
                         cell.textContent = formatMillier(vap.toFixed(3));
