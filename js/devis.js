@@ -240,9 +240,10 @@ function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech,P){
                 j = Math.round((D222.getTime()-D111.getTime())/(1000 * 3600 * 24))+1;
                 
     
-         
-              Vka_n =Pe0*(Math.pow((1+ipnet),(Math.max(0,(njc-(j+15)+1))/nja)));
-             
+                if(Freq==12)
+                    Vka_n =Pe0*(Math.pow((1+ipnet),(Math.max(0,(njc-(j+15)+1))/nja)))+Pej;
+                else
+                    Vka_n =Pe0*(Math.pow((1+ipnet),(Math.max(0,(njc-(j+15)+1))/nja)));             
             }
            
             while(k<=kn){
@@ -257,8 +258,6 @@ function Calcul_EC(Pe0,Pej,ipnet,Date0,Freq,Dure,Ech,P){
     
             }
             Vka  = Vka*(Math.pow((1+ipnet),(njc/nja)))+Vka_n;
-
-
             if(count==P)
                 {
                     return Vka;
